@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EMB-CAR | Landfill Construction Database · v14</title><style>
+:root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#12243c;background:#f4f7fb}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}.layout{display:grid;grid-template-columns:248px 1fr;min-height:100vh}.sidebar{background:#102238;color:#d8e7f5;padding:28px 18px}.logo{font-size:20px;font-weight:800;line-height:1.35;margin:0 10px 8px}.subtitle{font-size:11px;letter-spacing:1.2px;color:#8facc4;margin:0 10px 42px}.nav{display:block;width:100%;border:0;color:#d5e5f0;background:transparent;text-align:left;padding:13px 15px;margin:5px 0;border-radius:10px;font-weight:650}.nav.active,.nav:hover{background:#284761;color:white}.sidebarfoot{font-size:12px;color:#a8bfd0;line-height:1.7;margin:35px 10px}.main{max-width:1450px;width:100%;padding:30px 34px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}.eyebrow{font-size:11px;color:#67809a;font-weight:800;letter-spacing:1.4px}h1{margin:6px 0;font-size:29px;letter-spacing:-.6px}h2{font-size:19px;margin:0 0 16px}h3{font-size:15px;margin:4px 0 10px}.muted{color:#697b90;font-size:13px}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid #d8e1eb;background:white;color:#1d3a57;padding:10px 14px;border-radius:9px;font-weight:700}.primary{background:#12645b;color:white;border-color:#12645b}.btn:hover{filter:brightness(.96)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0 22px}.metric,.panel{border:1px solid #e3eaf1;background:#fff;border-radius:14px;box-shadow:0 3px 10px rgba(12,38,64,.025)}.metric{padding:22px}.metric .value{font-weight:800;font-size:30px;margin:8px 0}.panel{padding:23px;margin-bottom:20px}.search{padding:12px 14px;width:100%;border:1px solid #d7e0e9;border-radius:9px;background:#fff;outline-color:#1b8272}.tools{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}.tools input{flex:1;min-width:200px}.tools select{min-width:170px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:750px}th{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:#6f8297;text-align:left;background:#f7f9fc}th,td{padding:13px 11px;border-bottom:1px solid #e8eef4;vertical-align:top}tr:last-child td{border-bottom:0}tbody tr:hover{background:#f7fafc}.link{color:#116d69;font-weight:750;border:0;background:none;padding:0;text-align:left}.pill{padding:5px 9px;border-radius:20px;background:#eff3f8;font-size:11px;font-weight:800;white-space:nowrap;display:inline-block}.good{background:#dff5eb;color:#11644b}.warn{background:#fff2d9;color:#805a12}.bad{background:#ffeded;color:#a64040}.progress{background:#e9eef2;width:110px;height:7px;border-radius:10px;overflow:hidden;margin-top:6px}.progress>div{height:100%;background:#198478}.tiny{font-size:11px;color:#718298}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.detailtitle{display:flex;justify-content:space-between;gap:12px;align-items:center}.datalist{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.datapoint small{color:#718398;display:block;margin-bottom:6px}.datapoint strong{font-size:14px;overflow-wrap:anywhere}.note{padding:15px;background:#f4f8fb;border-left:3px solid #247b72;border-radius:7px;white-space:pre-wrap;line-height:1.55;font-size:13px}.visit{padding:15px 0;border-bottom:1px solid #e4ebf2}.visit:last-child{border:0}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}label{font-size:12px;font-weight:700;color:#425a73;display:block;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:11px 12px;border:1px solid #d3e0e9;border-radius:8px;background:#fff;color:#1b3449}.field textarea{min-height:85px;resize:vertical}.full{grid-column:1/-1}.componentedit{display:grid;grid-template-columns:minmax(180px,2fr) minmax(145px,1fr) minmax(180px,2fr);align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #edf1f5}.componentedit select,.componentedit input{width:100%;border:1px solid #d6e0eb;border-radius:7px;padding:8px}.modalbg{position:fixed;inset:0;background:rgba(8,27,48,.64);z-index:30;overflow:auto;padding:25px}.modal{max-width:900px;background:white;margin:20px auto;border-radius:16px;padding:27px}.modalhead{display:flex;justify-content:space-between;align-items:center}.empty{padding:28px;text-align:center;color:#75869b}.alert{background:#fff8e9;border:1px solid #ffedc4;padding:13px;border-radius:9px;font-size:12px;line-height:1.55;color:#755a25}.close{font-size:23px;background:none;border:0}.badgeDate{font-size:11px;color:#6e8597}@media(max-width:940px){.layout{grid-template-columns:1fr}.sidebar{padding:16px}.sidebarfoot,.subtitle{display:none}.logo{display:inline-block;font-size:17px;margin:0 16px 0 0}.nav{display:inline-block;width:auto;padding:9px}.main{padding:18px}.cards{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.datalist{grid-template-columns:repeat(2,1fr)}}@media(max-width:530px){.cards,.formgrid,.datalist{grid-template-columns:1fr}.metric{padding:15px}.componentedit{grid-template-columns:1fr}.modal{padding:17px}}
+
+/* v2 registry and brand enhancements */
+.embbrand{display:flex;gap:13px;align-items:center;margin:0 8px 25px}.seal-wrap{width:62px;height:62px;flex:0 0 62px;border-radius:50%;background:#fff;padding:3px;display:grid;place-items:center;overflow:hidden}.seal-wrap img{display:block;width:100%;height:100%;object-fit:contain}.seal-fallback{display:flex;align-items:center;justify-content:center;background:#e3f6ef;border:2px solid #117663;color:#08685b;width:100%;height:100%;border-radius:50%;font-weight:900;font-size:15px}.brandtitle{font-weight:850;font-size:17px;line-height:1.13;color:white}.brandname{font-size:10px;color:#bdcfdb;letter-spacing:.1px;line-height:1.5;margin-top:5px}.agencybanner{display:flex;align-items:center;gap:15px;background:linear-gradient(115deg,#fff,#f0f8f5);padding:16px 20px;border:1px solid #dbe9e3;border-radius:14px;margin-bottom:17px}.agencybanner .seal-wrap{width:78px;height:78px;flex-basis:78px;box-shadow:0 1px 6px #092b311c}.agencyname{font-weight:850;font-size:20px;color:#153b3c;line-height:1.22}.agencydesc{color:#52706e;font-size:12px;margin-top:7px}.emblabel{font-weight:800;font-size:10px;letter-spacing:1.1px;color:#21776e}.component-setup{margin-top:25px;border-top:1px solid #e1e8ee;padding-top:20px}.component-setup h3{font-size:17px}.picker-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:10px 0}.picker-toolbar .search{flex:1;min-width:220px}.picker-head,.picker-entry{display:grid;grid-template-columns:minmax(185px,1.7fr) 92px 96px minmax(128px,1fr);align-items:center;gap:10px;padding:11px 12px}.picker-head{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#65778a;background:#f0f5f9;border-radius:8px}.picker-entry{border-bottom:1px solid #e9eef3;font-size:12px}.picker-entry:hover{background:#f7fafc}.picker-entry input[type=checkbox]{accent-color:#11786c;width:17px;height:17px}.picker-entry .picklabel{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;color:#243c51;margin:0}.picker-entry .pickref{width:100%;border:1px solid #d4e0e9;border-radius:7px;padding:8px;font-size:12px}.pick-group{display:block;color:#728399;font-size:11px;font-weight:400;margin-top:3px}.pickcount{font-size:12px;font-weight:800;color:#145d55;background:#e5f6ed;border-radius:20px;padding:7px 12px;white-space:nowrap}.customadd{border:1px dashed #a7bcb8;background:#f7faf9;border-radius:10px;margin-top:15px;padding:15px}.customaddgrid{display:grid;grid-template-columns:2fr 1.2fr 1.2fr auto;gap:10px;align-items:end}.customaddgrid input{width:100%;border:1px solid #d4e0e9;border-radius:8px;padding:10px}.component-not-configured{background:#fff8e9;border:1px solid #efdba9;border-radius:10px;padding:14px;margin-bottom:14px;color:#825d18}.tinyoutline{padding:7px 10px;font-size:11px;font-weight:800}.a-tag{font-size:11px;font-weight:700;color:#456074}.sectionactions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}.picker-scroll{max-height:360px;overflow-y:auto;border:1px solid #e4eaf1;border-radius:10px}.reg-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.modal{max-width:1000px}.mutednote{font-size:12px;line-height:1.6;color:#597087;margin:10px 0}.tooltip-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}@media(max-width:940px){.embbrand{display:inline-flex;vertical-align:middle;margin:0 10px 10px 0}.brandname{display:none}.brandtitle{font-size:15px}.seal-wrap{width:45px;height:45px;flex-basis:45px}.sidebar .nav{margin:2px}}@media(max-width:680px){.agencyname{font-size:17px}.agencybanner .seal-wrap{width:56px;height:56px;flex-basis:56px}.picker-head{display:none}.picker-entry{grid-template-columns:1fr 1fr;gap:8px}.picker-entry .picklabel{grid-column:1/-1}.customaddgrid{grid-template-columns:1fr 1fr}.customaddgrid .btn{grid-column:1/-1}}
+
+/* v4: deliberate, ECC-confirmed deletion of mistaken landfill registrations */
+.dangerbtn{color:#a4272c;border-color:#e9c1c2;background:#fff}
+.dangerbtn:hover{background:#fff2f2}
+.dangerbtnsolid{background:#ad2934;border-color:#ad2934;color:#fff}
+.dangerbtnsolid:disabled{opacity:.43;filter:none;cursor:not-allowed}
+.dangerpanel{border:1px solid #f0b9ba;background:#fff4f3;color:#7f1b28;border-radius:11px;padding:17px 18px;line-height:1.6;margin:12px 0 17px;font-size:13px}
+.deleteverify{border:1px solid #e1e8ee;background:#f9fbfd;border-radius:11px;padding:17px 18px;margin:18px 0}
+.deleteverify input[type=text]{width:100%;max-width:480px;border:1px solid #cbd8e3;border-radius:8px;padding:11px 12px;margin:8px 0 11px}
+.deleteverify .ack{display:flex;align-items:flex-start;gap:10px;margin:7px 0 0;font-size:12px;line-height:1.45}
+.deleteverify .ack input{accent-color:#ad2934;margin-top:2px;flex-shrink:0}
+.deleteverify code{font-weight:750;color:#8f2630;user-select:all}
+
+.visit-actions{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.visit-actions .btn{padding:6px 10px;font-size:11px}
+.revised{font-size:11px;color:#825e2c;background:#fff3db;border-radius:6px;padding:3px 7px;display:inline-block;margin-left:7px}
+.visit-summary{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.visit-edit-note{background:#eff8f4;border:1px solid #d7ede2;border-radius:9px;padding:12px 14px;font-size:12px;color:#23574a;line-height:1.55;margin:12px 0}
+
+/* v7: Photo-focused monitoring without maps */
+/* Site photos: quick upload and clearly dated evidence */
+.photo-dropzone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:155px;padding:25px 20px;border:2px dashed #92beb4;background:#f2faf7;border-radius:13px;cursor:pointer;text-align:center;transition:.15s ease;color:#205349}
+.photo-dropzone:hover,.photo-dropzone.dragging,.photo-dropzone:focus-visible{border-color:#137566;background:#e4f5ef;outline:0}
+.photo-dropzone.uploading{opacity:.65;pointer-events:none}
+.photo-dropzone strong{font-size:16px}.photo-dropzone span{font-size:12px;color:#5c7774}
+.photo-dropzone .camera{font-size:29px}.photo-upload-status{padding:10px 12px;margin-top:12px;border-radius:9px;background:#ecf7f2;color:#135d46;font-size:13px;min-height:0}
+.photo-upload-status:empty{display:none}.photo-upload-status.error{background:#fff0ef;color:#8d2932}
+.photo-group-options{padding:12px 15px;border:1px solid #e3ece9;border-radius:9px;margin-top:12px;background:#fafcfc}
+.photo-group-options summary{font-size:12px;font-weight:750;cursor:pointer;color:#345e58}
+.photo-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.photo-form-drop{border:1px dashed #adcac3;background:white;padding:14px;border-radius:10px;cursor:pointer;text-align:center;margin-top:10px;font-size:13px;font-weight:700;color:#186756}
+.photo-form-drop.dragging{background:#e8f8f1;border-color:#107762}
+.visit-photo-preview{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.visit-photo-preview img{width:76px;height:64px;object-fit:cover;border-radius:7px;border:1px solid #d9e6e3}
+.photo-quick-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px;margin-top:12px}
+.photo-quick-item{border:1px solid #e1e8ec;border-radius:10px;overflow:hidden;background:#fff;cursor:pointer}
+.photo-quick-item img{display:block;width:100%;height:120px;object-fit:cover;background:#ecf1f4}.photo-quick-item figcaption{font-size:12px;padding:9px;color:#435d6e;line-height:1.4}
+@media(max-width:600px){.photo-dropzone{min-height:125px}.photo-quick-gallery{grid-template-columns:repeat(2,1fr)}}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:13px;margin:16px 0}
+.photo-card{border:1px solid #e0e8ec;border-radius:12px;overflow:hidden;background:#fff}
+.photo-card img{width:100%;height:155px;object-fit:cover;display:block;background:#edf1f4;cursor:zoom-in}
+.photo-card .photo-content{padding:12px;font-size:12px}.photo-card .photo-title{font-weight:750;color:#234255;line-height:1.4}
+.photo-meta{color:#738598;font-size:11px;margin-top:6px}.photo-empty{background:#f5f8fa;border:1px dashed #cbd9df;border-radius:10px;padding:24px;text-align:center;color:#687d8c;font-size:13px}
+.photo-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}.photo-fields .full{grid-column:1/-1}
+.photo-note{font-size:12px;line-height:1.55;color:#547184}.photo-count{font-size:12px;color:#657f85}
+@media(max-width:650px){.photo-fields{grid-template-columns:1fr}}
+
+/* v10 monitoring personnel directory */
+.staff-picker{border:1px solid #d8e2ed;border-radius:10px;background:#f9fbfe;padding:9px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:205px;overflow-y:auto}
+.staff-choice{display:flex;align-items:center;gap:9px;border:1px solid #e5ebf1;background:white;padding:10px 11px;border-radius:8px;margin:0;font-weight:500;cursor:pointer}
+.staff-choice input{width:16px;height:16px;accent-color:#12645b;flex:none}.staff-choice span{font-size:12px}.staff-choice b{font-weight:700}.staff-initial{margin-left:8px;display:inline-block;font-size:11px!important;color:#11645c;background:#e2f5ef;border-radius:5px;padding:3px 6px;font-weight:850}.staff-inactive{opacity:.6}
+.staff-quick-add{border:1px dashed #bdd2ce;border-radius:8px;padding:10px;margin-top:11px}.staff-quick-add summary{cursor:pointer;color:#17665c;font-size:12px;font-weight:750}.staff-quick-grid{display:grid;grid-template-columns:2fr 1fr auto;gap:8px;margin-top:12px}.staff-quick-grid input{min-width:0}
+.staff-table{min-width:690px}.staff-table td:last-child{white-space:nowrap}
+@media(max-width:670px){.staff-picker{grid-template-columns:1fr}.staff-quick-grid{grid-template-columns:1fr}}
+
+/* v12: component verification is central to each monitoring visit */
+.component-visit-block{margin:23px 0 17px;border:1px solid #c8dfda;border-radius:13px;background:#fbfefd;overflow:hidden}
+.component-visit-head{padding:17px 18px 15px;background:#ecf7f3;border-bottom:1px solid #d5e8e2}
+.component-visit-head h3{margin:0 0 7px;font-size:17px;color:#174f48}
+.component-visit-guide{font-size:12px;color:#466c65;line-height:1.55;margin:0}
+.component-visit-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:13px 0 0}
+.component-visit-tools input[type=search]{flex:1;min-width:170px;background:white;padding:10px 12px;border:1px solid #bcd5d0;border-radius:8px;font-size:13px}
+.component-visit-count{background:#146e60;color:white;font-size:12px;font-weight:800;border-radius:20px;padding:8px 11px;white-space:nowrap}
+.component-visit-list{padding:8px 17px 14px;max-height:520px;overflow-y:auto}
+.componentedit{grid-template-columns:minmax(150px,1.65fr) minmax(145px,1.05fr) minmax(170px,1.5fr);border-radius:8px;padding:12px 9px}
+.componentedit.updated{background:#edf8f3}
+.componentedit .component-label{font-size:13px;line-height:1.4;color:#1d394d}
+.componentedit .previous-verification{font-size:11px;color:#658090;margin-top:4px;line-height:1.5}
+.componentedit .status-select-label{display:block;color:#465b67;font-size:11px;font-weight:750;margin:0 0 5px}
+.componentedit .status-select-label:after{content:''}
+.componentedit .same-status{display:block;font-size:11px;border:0;background:none;color:#117064;padding:6px 1px 0;text-align:left;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.componentedit .cobservation:disabled{opacity:.55;background:#f1f4f6;cursor:not-allowed}
+.componentgroup-label{font-size:11px;font-weight:850;letter-spacing:.8px;color:#486e68;background:#f0f5f4;padding:10px 11px;border-radius:7px;margin:12px 0 4px;text-transform:uppercase}
+.component-visit-footer{padding:10px 17px;background:#f4faf8;border-top:1px solid #dbeae5;color:#5f7a72;font-size:11px;line-height:1.5}
+@media(max-width:650px){.componentedit{grid-template-columns:1fr}.component-visit-list{max-height:440px}.component-visit-tools input[type=search]{min-width:130px}}
+
+/* v14: one-page regional management summary; all information derived from encoded records. */
+.regional-shell{max-width:1380px}.regional-heading{margin-bottom:13px}.regional-heading h1{font-size:27px}.regional-snap{font-size:11px;color:#587189;background:#eef5f8;padding:7px 11px;border-radius:25px;display:inline-block;margin:5px 0}
+.regional-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0}
+.regional-kpi{background:#fff;border:1px solid #dce5ee;border-radius:11px;padding:15px 16px;min-width:0}
+.regional-kpi .big{font-size:27px;font-weight:850;color:#142c42;line-height:1.05;margin:6px 0}.regional-kpi .k{font-size:10px;letter-spacing:.65px;color:#668098;font-weight:850;text-transform:uppercase}.regional-kpi small{color:#718295;font-size:11px}
+.regional-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}
+.regional-panel{background:#fff;border:1px solid #dce5ee;border-radius:11px;padding:16px 18px;min-width:0}
+.regional-panel h2{font-size:15px;margin:0 0 5px}.regional-panel .muted{font-size:11px;margin:0 0 12px}
+.stage-line{display:grid;grid-template-columns:minmax(135px,1.15fr) 2fr auto;align-items:center;gap:10px;margin:8px 0;font-size:11px}
+.stage-line .stage-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.regional-track{height:10px;border-radius:20px;background:#edf2f6;overflow:hidden}.regional-track > div{height:100%;border-radius:20px;background:#357ca2;min-width:0}
+.regional-track.unknown > div{background:#9eaebe}.stage-num{font-weight:700;min-width:30px;text-align:right;white-space:nowrap}
+.component-stack{display:flex;width:100%;height:16px;background:#edf2f6;border-radius:10px;overflow:hidden;margin:16px 0 10px}.component-stack .comp-segment{min-width:0;height:100%}
+.component-legend{display:flex;flex-wrap:wrap;gap:7px 16px;font-size:11px}.component-legend b{font-weight:800}.key-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.regional-table-panel{background:#fff;border:1px solid #dce5ee;border-radius:11px;padding:15px 16px}.regional-table-panel .detailtitle{margin-bottom:10px}.regional-table-panel h2{margin:0;font-size:15px}.regional-table{width:100%;min-width:830px;border-collapse:collapse;table-layout:fixed;font-size:11px}.regional-table th{background:#16314a;color:#fff;font-size:9px;letter-spacing:.35px;padding:9px 8px}.regional-table td{padding:10px 8px;line-height:1.35;border-bottom:1px solid #e8eff5;overflow-wrap:anywhere}.regional-table td:nth-child(2){font-size:10px}.regional-table td:last-child{max-width:230px}.regional-table .tiny{font-size:10px}.regional-table .row-stage{font-size:10px}
+.regional-find{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;white-space:normal}.regional-note{font-size:11px;line-height:1.5;color:#697b90;padding:10px 2px 0}.regional-empty{padding:20px;text-align:center;color:#718396}
+@media(max-width:1030px){.regional-panels{grid-template-columns:1fr}.regional-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.regional-kpis{grid-template-columns:1fr}.regional-kpi{padding:12px}}
+@page{size:A4 landscape;margin:9mm}
+@media print{html,body{background:#fff!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}body{font-size:10px}.layout{display:block;min-height:0}.sidebar{display:none!important}.main{max-width:none;padding:0;margin:0}.agencybanner{padding:6px 10px;margin-bottom:7px;min-height:0}.agencybanner .seal-wrap{width:48px;height:48px;flex:0 0 48px}.agencyname{font-size:16px}.agencydesc{font-size:9px;margin-top:2px}.emblabel{font-size:8px}.regional-shell .top{margin-bottom:6px}.regional-shell .top h1{font-size:19px;margin:3px 0}.regional-shell .top .muted{font-size:9px}.regional-snap{font-size:9px;padding:4px 8px;margin:3px 0}.regional-kpis{gap:7px;margin:6px 0}.regional-kpi{padding:8px 9px;border-radius:6px}.regional-kpi .big{font-size:18px;margin:4px 0}.regional-kpi .k{font-size:8px}.regional-kpi small{font-size:8px}.regional-panels{grid-template-columns:1fr 1fr;gap:7px;margin:0 0 7px}.regional-panel{padding:9px 10px;border-radius:6px}.regional-panel h2{font-size:11px;margin:0 0 2px}.regional-panel .muted{font-size:8px;margin:0 0 5px}.stage-line{gap:6px;margin:4px 0;font-size:8px;grid-template-columns:110px 1fr auto}.regional-track{height:7px}.component-stack{height:11px;margin:8px 0 6px}.component-legend{font-size:8px;gap:4px 10px}.regional-table-panel{padding:8px 10px;border-radius:6px;break-inside:avoid}.regional-table-panel h2{font-size:11px}.regional-table-panel .detailtitle{margin-bottom:5px}.regional-table{min-width:0;font-size:8px}.regional-table th{padding:5px;font-size:7px}.regional-table td{padding:5px;line-height:1.2}.regional-table td:nth-child(2){font-size:7px}.regional-table .tiny{font-size:7px}.regional-table .row-stage{font-size:8px}.regional-find{-webkit-line-clamp:2}.regional-note{font-size:8px;padding:5px 2px}.no-print{display:none!important}.regional-shell{max-width:none}.regional-table tr{break-inside:avoid}}
+</style></head><body><div class="layout"><aside class="sidebar"><div class="embbrand" id="embSidebarBrand"></div><button class="nav active" data-nav="dashboard">◫ &nbsp; Overview</button><button class="nav" data-nav="regional">▤ &nbsp; Regional Summary</button><button class="nav" data-nav="registry">▦ &nbsp; Landfill Registry</button><button class="nav" data-nav="history">◷ &nbsp; Monitoring History</button><button class="nav" data-nav="data">⇄ &nbsp; Backup & Data</button></aside><main class="main"><div id="app"></div></main></div><div id="modalhost"></div><input type="file" id="fileinput" accept=".swm,.json" hidden><script>
+const SEED={"version":2,"landfills":[{"ecc":"ECC-OL-2019-0040","lgu":"Licuan - Baay","province":"Abra","municipality":"Licuan - Baay","barangay":"Bituin, Lenng","eccDate":"","category":"Category 1","startDate":"","area":"1","lat":"17.62097","lng":"120.86099","scope":"","stage":"","notes":""},{"ecc":"ECC-OL-CAR-2021-0076","lgu":"Conner","province":"Apayao","municipality":"Conner","barangay":"Macatel, Caglayan","eccDate":"2021-06-25","category":"Category 1","startDate":"","area":"3","lat":"17.794689999999999","lng":"121.34325","scope":"","stage":"Site Development","notes":""},{"ecc":"ECC-OL-2023-0189","lgu":"Kibungan","province":"Benguet","municipality":"Kibungan","barangay":"Bowalan, Poblacion","eccDate":"","category":"Category 1","startDate":"","area":"0.15","lat":"16.704722","lng":"120.6525","scope":"","stage":"","notes":""},{"ecc":"ECC-OL-2020-0036","lgu":"Mayoyao","province":"Ifugao","municipality":"Mayoyao","barangay":"Tukgong, Liwo","eccDate":"","category":"Category 1","startDate":"","area":"1","lat":"16.97044","lng":"121.25995","scope":"","stage":"","notes":""},{"ecc":"ECC-OL-2022-0180","lgu":"Kiangan","province":"Ifugao","municipality":"Kiangan","barangay":"Culong, Hucab","eccDate":"","category":"Category 1","startDate":"","area":"1","lat":"16.768339999999998","lng":"121.15234","scope":"","stage":"","notes":""},{"ecc":"ECC-OL-CAR-2025-0112","lgu":"Balbalan","province":"Kalinga","municipality":"Balbalan","barangay":"Mapitpita, Maling","eccDate":"2025-05-27","category":"Category 1","startDate":"","area":"1","lat":"17.47203","lng":"121.23220999999999","scope":"","stage":"","notes":""}],"visits":[{"id":"legacy-visit-6","ecc":"ECC-OL-CAR-2021-0076","date":"2026-06-04","stage":"Site Development","ongoing":"Cell 2 Excavation","newly":"","findings":"1. Large accumulation of mixed waste is observed openly stockpiled in the area adjacent to the three TRCA.","actions":"","iis":"CAR-2026-010645","team":"JWT / LDB","counterparts":"Glen A. Buerano / EMS II","remarks":"","legacyCompletion":"4.7619047619047616E-2","updates":[],"createdAt":""}],"components":[{"id":"legacy-component-6","ecc":"ECC-OL-CAR-2021-0076","name":"Weighing Bridge","group":"Recovery / Support Facility","reference":"","required":false,"status":"Not Applicable","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010971","verifier":"JWT/ LDB","remarks":"","applicable":false},{"id":"legacy-component-7","ecc":"ECC-OL-CAR-2021-0076","name":"Cell 1","group":"Waste Containment","reference":"Annex C","required":true,"status":"Completed","completedDate":"2026-06-04","verifiedDate":"","observation":"Complete Excavation for Cell 1","iis":"","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-8","ecc":"ECC-OL-CAR-2021-0076","name":"Cell 2","group":"Waste Containment","reference":"Annex C","required":true,"status":"Ongoing","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010972","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-9","ecc":"ECC-OL-CAR-2021-0076","name":"Liners","group":"Waste Containment","reference":"","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010973","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-10","ecc":"ECC-OL-CAR-2021-0076","name":"Leachate Treatment Facility","group":"Leachate Management","reference":"Condition No.2","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010974","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-11","ecc":"ECC-OL-CAR-2021-0076","name":"Control Room","group":"Recovery / Support Facility","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010975","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-12","ecc":"ECC-OL-CAR-2021-0076","name":"Vent Pipes","group":"Gas Management","reference":"General Condition No. 7","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010976","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-13","ecc":"ECC-OL-CAR-2021-0076","name":"Monitoring Wells","group":"Leachate Management","reference":"","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010977","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-14","ecc":"ECC-OL-CAR-2021-0076","name":"Admin Building","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010978","verifier":"JWT/ LDB","remarks":"**Engineering Office**","applicable":true},{"id":"legacy-component-15","ecc":"ECC-OL-CAR-2021-0076","name":"Stormwater Drainage","group":"Stormwater Management","reference":"Condition No. 4","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010979","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-16","ecc":"ECC-OL-CAR-2021-0076","name":"Perimeter Fence","group":"Access / Security","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010980","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-17","ecc":"ECC-OL-CAR-2021-0076","name":"Stockpile of Soil Cover","group":"Waste Containment","reference":"General Condition No. 5","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010981","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-18","ecc":"ECC-OL-CAR-2021-0076","name":"Perimeter Drainage","group":"Stormwater Management","reference":"Condition No. 6","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010982","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-19","ecc":"ECC-OL-CAR-2021-0076","name":"Wash Bay","group":"Utilities","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010983","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-20","ecc":"ECC-OL-CAR-2021-0076","name":"Sanitation Facilities (Comfort Room, Wash Room, Septic Tank)","group":"Utilities","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010984","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-21","ecc":"ECC-OL-CAR-2021-0076","name":"Potable Water Supply","group":"Utilities","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010985","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-22","ecc":"ECC-OL-CAR-2021-0076","name":"Parking Area","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010986","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-23","ecc":"ECC-OL-CAR-2021-0076","name":"Motor Pool","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010987","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-24","ecc":"ECC-OL-CAR-2021-0076","name":"Gasoline and Diesel Station","group":"Recovery / Support Facility","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010988","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-25","ecc":"ECC-OL-CAR-2021-0076","name":"Security Post/ Guard House","group":"Access / Security","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010989","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-26","ecc":"ECC-OL-CAR-2021-0076","name":"Staff House","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010990","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-27","ecc":"ECC-OL-CAR-2021-0076","name":"Signages / Billboards","group":"Access / Security","reference":"General Condition No. 2","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010991","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-28","ecc":"ECC-OL-CAR-2021-0076","name":"Water Tank","group":"Utilities","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010992","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-29","ecc":"ECC-OL-CAR-2021-0076","name":"Road System","group":"Access / Security","reference":"","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010993","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-30","ecc":"ECC-OL-CAR-2021-0076","name":"CCTV","group":"Access / Security","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010994","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-31","ecc":"ECC-OL-CAR-2021-0076","name":"MRF","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010995","verifier":"JWT/ LDB","remarks":"**Recycling Facility**","applicable":true},{"id":"legacy-component-32","ecc":"ECC-OL-CAR-2021-0076","name":"HWSF","group":"Recovery / Support Facility","reference":"","required":false,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010996","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-33","ecc":"ECC-OL-CAR-2021-0076","name":"Composting Area","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010997","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-34","ecc":"ECC-OL-CAR-2021-0076","name":"Transfer Station","group":"Recovery / Support Facility","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010998","verifier":"JWT/ LDB","remarks":"","applicable":true},{"id":"legacy-component-35","ecc":"ECC-OL-CAR-2021-0076","name":"Waste Reception/ Tipping Area","group":"Waste Containment","reference":"Annex C","required":true,"status":"Not Started","completedDate":"","verifiedDate":"2026-06-04","observation":"","iis":"CAR-2026-010999","verifier":"JWT/ LDB","remarks":"","applicable":true}],"catalog":[{"name":"Weighing Bridge","group":"Recovery / Support Facility"},{"name":"Cell 1","group":"Waste Containment"},{"name":"Cell 2","group":"Waste Containment"},{"name":"Liners","group":"Waste Containment"},{"name":"Leachate Treatment Facility","group":"Leachate Management"},{"name":"Control Room","group":"Recovery / Support Facility"},{"name":"Vent Pipes","group":"Gas Management"},{"name":"Monitoring Wells","group":"Leachate Management"},{"name":"Admin Building","group":"Recovery / Support Facility"},{"name":"Stormwater Drainage","group":"Stormwater Management"},{"name":"Perimeter Fence","group":"Access / Security"},{"name":"Stockpile of Soil Cover","group":"Waste Containment"},{"name":"Perimeter Drainage","group":"Stormwater Management"},{"name":"Wash Bay","group":"Utilities"},{"name":"Sanitation Facilities (Comfort Room, Wash Room, Septic Tank)","group":"Utilities"},{"name":"Potable Water Supply","group":"Utilities"},{"name":"Parking Area","group":"Recovery / Support Facility"},{"name":"Motor Pool","group":"Recovery / Support Facility"},{"name":"Gasoline and Diesel Station","group":"Recovery / Support Facility"},{"name":"Security Post/ Guard House","group":"Access / Security"},{"name":"Staff House","group":"Recovery / Support Facility"},{"name":"Signages / Billboards","group":"Access / Security"},{"name":"Water Tank","group":"Utilities"},{"name":"Road System","group":"Access / Security"},{"name":"CCTV","group":"Access / Security"},{"name":"MRF","group":"Recovery / Support Facility"},{"name":"HWSF","group":"Recovery / Support Facility"},{"name":"Composting Area","group":"Recovery / Support Facility"},{"name":"Transfer Station","group":"Recovery / Support Facility"},{"name":"Waste Reception/ Tipping Area","group":"Waste Containment"}]};
+
+const LOGO_URL='data:image/png;base64,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';
+const DEFAULT_CATALOG=[{"name": "Weighing Bridge", "group": "Recovery / Support Facility"}, {"name": "Cell 1", "group": "Waste Containment"}, {"name": "Cell 2", "group": "Waste Containment"}, {"name": "Liners", "group": "Waste Containment"}, {"name": "Leachate Treatment Facility", "group": "Leachate Management"}, {"name": "Control Room", "group": "Recovery / Support Facility"}, {"name": "Vent Pipes", "group": "Gas Management"}, {"name": "Monitoring Wells", "group": "Leachate Management"}, {"name": "Admin Building", "group": "Recovery / Support Facility"}, {"name": "Stormwater Drainage", "group": "Stormwater Management"}, {"name": "Perimeter Fence", "group": "Access / Security"}, {"name": "Stockpile of Soil Cover", "group": "Waste Containment"}, {"name": "Perimeter Drainage", "group": "Stormwater Management"}, {"name": "Wash Bay", "group": "Utilities"}, {"name": "Sanitation Facilities (Comfort Room, Wash Room, Septic Tank)", "group": "Utilities"}, {"name": "Potable Water Supply", "group": "Utilities"}, {"name": "Parking Area", "group": "Recovery / Support Facility"}, {"name": "Motor Pool", "group": "Recovery / Support Facility"}, {"name": "Gasoline and Diesel Station", "group": "Recovery / Support Facility"}, {"name": "Security Post/ Guard House", "group": "Access / Security"}, {"name": "Staff House", "group": "Recovery / Support Facility"}, {"name": "Signages / Billboards", "group": "Access / Security"}, {"name": "Water Tank", "group": "Utilities"}, {"name": "Road System", "group": "Access / Security"}, {"name": "CCTV", "group": "Access / Security"}, {"name": "MRF", "group": "Recovery / Support Facility"}, {"name": "HWSF", "group": "Recovery / Support Facility"}, {"name": "Composting Area", "group": "Recovery / Support Facility"}, {"name": "Transfer Station", "group": "Recovery / Support Facility"}, {"name": "Waste Reception/ Tipping Area", "group": "Waste Containment"}];
+function newLocalId(prefix){
+ let part='';
+ if(typeof crypto!=='undefined'&&crypto.getRandomValues){const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);part=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('')}
+ else part=Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2);
+ return prefix+part;
+}
+function normName(s){return String(s||'').trim().replace(/\s+/g,' ').toLowerCase()}
+function normalizeState(){
+ if(!state||!Array.isArray(state.landfills)||!Array.isArray(state.visits)||!Array.isArray(state.components))state=structuredClone(SEED);
+ if(!Array.isArray(state.catalog))state.catalog=[];
+ let names=new Set();
+ for(const entry of [...DEFAULT_CATALOG,...state.catalog,...state.components]){
+  if(!entry.name)continue;
+  const k=normName(entry.name);
+  if(!names.has(k)){names.add(k);if(!state.catalog.some(x=>normName(x.name)===k))state.catalog.push({name:entry.name,group:entry.group||'Other'})}
+ }
+ for(const c of state.components){
+  if(typeof c.applicable!=='boolean')c.applicable=(c.status!=='Not Applicable');
+  if(typeof c.required!=='boolean')c.required=String(c.required).toLowerCase()==='true';
+ }
+ if(!state.settings)state.settings={};
+ if(!Array.isArray(state.photos))state.photos=[];
+ // Personnel directory is part of the saved database. Old records without personnel IDs remain valid.
+ if(!Array.isArray(state.personnel))state.personnel=[];
+ state.personnel=state.personnel.filter(p=>p&&typeof p.id==='string'&&p.id).map(p=>({
+  id:p.id,name:String(p.name||'').trim(),initials:String(p.initials||'').trim().toUpperCase(),active:p.active!==false
+ }));
+ for(const v of state.visits){if(v.personnelIds&&!Array.isArray(v.personnelIds))v.personnelIds=[]}
+ // The EMB-CAR logo is fixed to the original official image embedded in this file.
+ delete state.settings.logoData;
+ state.version=12;
+ initializeComponentBaselines();
+}
+// Preserve pre-monitoring component states so a corrected or deleted visit can be replayed safely.
+// Older backups did not store a baseline. Infer status from the earliest recorded change;
+// historical metadata that cannot be reliably reconstructed is left blank rather than guessed.
+function visitAscending(e){return state.visits.filter(v=>v.ecc===e).sort((a,b)=>(a.date||'').localeCompare(b.date||'')||(a.createdAt||'').localeCompare(b.createdAt||'')||String(a.id||'').localeCompare(String(b.id||'')))}
+function updateMatchesComponent(u,c){return (u.componentId&&u.componentId===c.id)||(!u.componentId&&normName(u.name)===normName(c.name))}
+function initializeComponentBaselines(){
+ for(const c of state.components){
+  if(c.baseline&&typeof c.baseline==='object')continue;
+  const earliest=visitAscending(c.ecc).flatMap(v=>(v.updates||[]).map(u=>({u,v}))).find(x=>updateMatchesComponent(x.u,c));
+  c.baseline=earliest?{status:earliest.u.before||'Not Verified',completedDate:'',verifiedDate:'',observation:'',iis:'',verifier:''}
+    :{status:c.status||'Not Verified',completedDate:c.completedDate||'',verifiedDate:c.verifiedDate||'',observation:c.observation||'',iis:c.iis||'',verifier:c.verifier||''};
+ }
+}
+function rebuildComponentStatuses(e){
+ const siteComponents=cs(e);
+ for(const c of siteComponents){
+  const baseline=c.baseline||{status:'Not Verified'};
+  for(const key of ['status','completedDate','verifiedDate','observation','iis','verifier'])c[key]=baseline[key]|| (key==='status'?'Not Verified':'');
+ }
+ for(const v of visitAscending(e)){
+  for(const u of v.updates||[]){
+   const c=siteComponents.find(x=>updateMatchesComponent(u,x));
+   if(!c||!u.after)continue;
+   u.componentId=c.id;
+   u.name=c.name;
+   u.before=c.status;
+   const prevStatus=c.status;
+   c.status=u.after;c.verifiedDate=v.date||'';c.verifier=v.team||'';c.iis=v.iis||'';
+   if(u.observation)c.observation=u.observation;
+   if(u.after==='Completed'){
+    if(prevStatus!=='Completed'||!c.completedDate)c.completedDate=v.date||'';
+   }else c.completedDate='';
+  }
+ }
+}
+function visitActions(v){const id=esc(v.id);return `<span class="visit-actions"><button class="btn" type="button" onclick="openVisit('', '${id}')" title="Correct this monitoring entry">Edit Visit</button><button class="btn dangerbtn" type="button" onclick="openDeleteVisit('${id}')" title="Remove a mistaken monitoring entry">Delete Visit</button></span>`}
+
+function componentApplies(c){return c.applicable!==false}
+function logoBlock(){
+ const v=LOGO_URL;
+ return `<div class="seal-wrap"><img src="${esc(v)}" alt="Environmental Management Bureau (EMB) logo"></div>`;
+}
+function renderBrand(){
+ const b=$('#embSidebarBrand');if(b)b.innerHTML=logoBlock()+`<div><div class="brandtitle">EMB-CAR</div><div class="brandname">ENVIRONMENTAL MANAGEMENT BUREAU<br>CORDILLERA ADMINISTRATIVE REGION</div></div>`;
+}
+function agencyBanner(){return `<div class="agencybanner">${logoBlock()}<div><div class="emblabel">ENVIRONMENTAL MANAGEMENT BUREAU · CORDILLERA ADMINISTRATIVE REGION</div><div class="agencyname">EMB-CAR</div><div class="agencydesc">Solid Waste Management Section · Sanitary Landfill Construction Database</div></div></div>`}
+let componentDraft=null;
+function initPicker(e=''){
+ let selected={};for(const c of cs(e))selected[normName(c.name)]={checked:componentApplies(c),required:!!c.required,reference:c.reference||''};
+ componentDraft={ecc:e,catalog:structuredClone(state.catalog),selected,query:'',onlySelected:false};
+}
+function ensureChoice(name){const key=normName(name);if(!componentDraft.selected[key])componentDraft.selected[key]={checked:false,required:true,reference:''};return componentDraft.selected[key]}
+function countPicked(){return componentDraft.catalog.filter(c=>ensureChoice(c.name).checked).length}
+function pickerMarkup(){return `<section class="component-setup"><div class="sectionactions"><div><h3>Applicable ECC Components</h3><p class="mutednote">Tick only components that apply to this landfill. For applicable items, choose whether construction is required by its ECC. You can add a project-specific component below.</p></div><span class="pickcount" id="pickCount">${countPicked()} selected</span></div><div class="picker-toolbar"><input type="search" id="pickerSearch" class="search" placeholder="Find a component (e.g. HDPE liner, leachate, Cell 1)" oninput="componentDraft.query=this.value;paintPicker()"><label class="tooltip-row" style="font-weight:600;white-space:nowrap;margin:0"><input type="checkbox" id="pickerOnly" onchange="componentDraft.onlySelected=this.checked;paintPicker()"> Show selected only</label></div><div class="picker-head"><div>Component / Facility</div><div>Applicable?</div><div>Required by ECC?</div><div>ECC Condition / Reference</div></div><div class="picker-scroll" id="pickerRows"></div><div class="customadd"><h3>Add a Component Not in the List</h3><div class="customaddgrid"><div class="field"><label for="newCompName">Component name</label><input id="newCompName" placeholder="e.g. Leachate Holding Tank"></div><div class="field"><label for="newCompGroup">Category</label><input id="newCompGroup" placeholder="e.g. Leachate Management" list="componentGroups"></div><div class="field"><label for="newCompRef">ECC reference (optional)</label><input id="newCompRef" placeholder="e.g. Annex C"></div><button class="btn" type="button" onclick="addCustomPickerItem()">+ Add</button></div><datalist id="componentGroups">${[...new Set(componentDraft.catalog.map(c=>c.group||'Other'))].map(g=>`<option value="${esc(g)}"></option>`).join('')}</datalist></div><p class="mutednote">Unselected items are excluded from the landfill checklist and progress metrics. Existing records are retained if a component is subsequently marked not applicable.</p></section>`}
+function paintPicker(){
+ if(!componentDraft)return;
+ const host=$('#pickerRows');if(!host)return;
+ const query=componentDraft.query.toLowerCase();
+ const list=componentDraft.catalog.filter(c=>(!componentDraft.onlySelected||ensureChoice(c.name).checked)&&`${c.name} ${c.group}`.toLowerCase().includes(query));
+ host.innerHTML=list.map(c=>{
+  let choice=ensureChoice(c.name),key=normName(c.name);
+  return `<div class="picker-entry"><div class="picklabel"><b>${esc(c.name)}</b><span class="pick-group">${esc(c.group||'Other')}</span></div><div><label class="tooltip-row"><input aria-label="Applicable: ${esc(c.name)}" class="pick-applies" type="checkbox" data-comp="${esc(key)}" ${choice.checked?'checked':''} onchange="changePick(this,'checked')"> Yes</label></div><div><label class="tooltip-row"><input aria-label="Required by ECC: ${esc(c.name)}" class="pick-required" type="checkbox" data-comp="${esc(key)}" ${choice.required?'checked':''} ${choice.checked?'':'disabled'} onchange="changePick(this,'required')"> Yes</label></div><div><input class="pickref" aria-label="ECC reference: ${esc(c.name)}" data-comp="${esc(key)}" value="${esc(choice.reference)}" ${choice.checked?'':'disabled'} placeholder="Annex / condition" oninput="changePick(this,'reference')"></div></div>`
+ }).join('')||'<div class="empty">No components match the current filter.</div>';
+ const count=$('#pickCount');if(count)count.textContent=countPicked()+' selected';
+ const q=$('#pickerSearch');if(q&&q.value!==componentDraft.query)q.value=componentDraft.query;
+ const only=$('#pickerOnly');if(only)only.checked=componentDraft.onlySelected;
+}
+function changePick(el,part){
+ let choice=ensureChoice(el.dataset.comp);
+ choice[part]=part==='reference'?el.value:el.checked;
+ if(part==='checked'){
+  const row=el.closest('.picker-entry');row.querySelector('.pick-required').disabled=!el.checked;row.querySelector('.pickref').disabled=!el.checked;
+  if(componentDraft.onlySelected)paintPicker();
+ }
+ const count=$('#pickCount');if(count)count.textContent=countPicked()+' selected';
+}
+function addCustomPickerItem(){
+ const name=$('#newCompName').value.trim().replace(/\s+/g,' '),group=$('#newCompGroup').value.trim()||'Other',reference=$('#newCompRef').value.trim();
+ if(!name){alert('Enter a component name.');return}
+ if(name.length>120){alert('Component name must be 120 characters or fewer.');return}
+ if(componentDraft.catalog.some(c=>normName(c.name)===normName(name))){alert('This component already exists. Search for it and tick Applicable.');return}
+ componentDraft.catalog.push({name,group});
+ componentDraft.selected[normName(name)]={checked:true,required:true,reference};
+ componentDraft.query='';componentDraft.onlySelected=false;
+ paintPicker();
+ $('#newCompName').value='';$('#newCompRef').value='';
+ $('#pickerRows').scrollTop=$('#pickerRows').scrollHeight;
+}
+function applyPicker(e){
+ if(!componentDraft)return;
+ for(const entry of componentDraft.catalog){
+  const selection=ensureChoice(entry.name),key=normName(entry.name);
+  let c=state.components.find(c=>c.ecc===e&&normName(c.name)===key);
+  if(c){c.applicable=selection.checked;if(selection.checked){c.required=selection.required;c.reference=selection.reference;c.group=entry.group||c.group||'Other'}}
+  else if(selection.checked){state.components.push({id:newLocalId('c-'),ecc:e,name:entry.name,group:entry.group||'Other',reference:selection.reference,required:selection.required,applicable:true,status:'Not Verified',completedDate:'',verifiedDate:'',observation:'',iis:'',verifier:'',remarks:''})}
+ }
+ const keys=new Set(state.catalog.map(c=>normName(c.name)));
+ for(const entry of componentDraft.catalog)if(!keys.has(normName(entry.name))){state.catalog.push(entry);keys.add(normName(entry.name))}
+ componentDraft=null;
+}
+function openComponents(e){if(!land(e))return;initPicker(e);modal(`<div class="modalhead"><h2>Component Applicability · ${esc(land(e).lgu)}</h2><button class="close" onclick="closeModal()">×</button></div><div class="muted">ECC: ${esc(e)} · Each landfill has an independent component checklist.</div><form onsubmit="saveComponentPicker(event,'${esc(e)}')">${pickerMarkup()}<div class="actions" style="margin-top:20px"><button class="btn" type="button" onclick="closeModal()">Cancel</button><button class="btn primary" type="submit">Save Applicable Components</button></div></form>`);paintPicker()}
+function saveComponentPicker(ev,e){ev.preventDefault();applyPicker(e);persist();closeModal();if(view==='registry')registry();else if(view==='dashboard')dashboard();else openProfile(e)}
+
+const KEY='slf-monitor-system-v1';let state;try{state=JSON.parse(localStorage.getItem(KEY))||structuredClone(SEED)}catch{state=structuredClone(SEED)}
+normalizeState();
+let view='dashboard',term='',selected='',filter='';
+const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),show=s=>s?esc(s):'—';
+
+// Date format: users enter/view MM/DD/YYYY; saved records retain ISO YYYY-MM-DD for accurate ordering.
+function todayISO(){const d=new Date(),pad=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
+function dateOut(value){const raw=String(value||'').trim();if(!raw)return '';
+ const match=/^(\d{4})-(\d{2})-(\d{2})$/.exec(raw);
+ return match?`${match[2]}/${match[3]}/${match[1]}`:raw;
+}
+function dateIn(value,label,required=false){const raw=String(value||'').trim();if(!raw){if(required)throw Error(label+' is required (MM/DD/YYYY).');return ''}
+ const match=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(raw);
+ if(!match)throw Error(label+': enter the date as MM/DD/YYYY (example: 06/04/2026).');
+ const month=Number(match[1]),day=Number(match[2]),year=Number(match[3]);
+ const parsed=new Date(Date.UTC(year,month-1,day));
+ if(year<1900||year>2100||parsed.getUTCFullYear()!==year||parsed.getUTCMonth()!==month-1||parsed.getUTCDate()!==day)throw Error(label+': enter a valid calendar date in MM/DD/YYYY format.');
+ return `${match[3]}-${match[1]}-${match[2]}`;
+}
+
+function persist(){localStorage.setItem(KEY,JSON.stringify(state))}function land(e){return state.landfills.find(l=>l.ecc===e)}
+function visits(e){return state.visits.filter(v=>!e||v.ecc===e).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''))}
+// Personnel IDs link visits to a directory; legacy free-text teams are retained unchanged.
+function personById(id){return state.personnel.find(p=>p.id===id)}
+function monitoringTeam(v,style='initials'){
+ if(!v)return '';
+ if(Array.isArray(v.personnelIds)&&v.personnelIds.length){
+  return v.personnelIds.map(id=>{
+   const p=personById(id),snap=(v.personnelSnapshot||[]).find(x=>x.id===id);
+   const item=p||snap;
+   if(!item)return '';
+   return style==='full'?`${item.name} (${item.initials})`:item.initials;
+  }).filter(Boolean).join(' / ');
+ }
+ return v.team||'';
+}
+function currentStaffIds(){return Array.from(document.querySelectorAll('#staffChoiceList input[type=checkbox]:checked')).map(el=>el.value)}
+function staffChoiceMarkup(ids=[]){
+ const present=state.personnel.filter(p=>p.active||ids.includes(p.id)).sort((a,b)=>a.name.localeCompare(b.name));
+ if(!present.length)return '<div class="tiny">No personnel registered. Add names and initials in Backup & Data, or use Quick Add below.</div>';
+ return present.map(p=>`<label class="staff-choice ${!p.active?'staff-inactive':''}"><input type="checkbox" value="${esc(p.id)}" ${ids.includes(p.id)?'checked':''} aria-label="Select ${esc(p.name)}"><span><b>${esc(p.name)}</b><span class="staff-initial">${esc(p.initials)}</span>${p.active?'':'<small> · Inactive</small>'}</span></label>`).join('');
+}
+function refreshStaffChoices(ids){const host=$('#staffChoiceList');if(host)host.innerHTML=staffChoiceMarkup(ids||currentStaffIds())}
+function quickAddPersonnel(){
+ const name=$('#quickStaffName')?.value.trim(),initials=$('#quickStaffInitials')?.value.trim();
+ const p=addOrUpdatePerson(name,initials);
+ if(!p)return;
+ const ids=currentStaffIds();ids.push(p.id);refreshStaffChoices(ids);
+ $('#quickStaffName').value='';$('#quickStaffInitials').value='';
+ $('#quickStaffArea').open=false;
+}
+function initialSuggestion(name){return (name||'').trim().split(/\s+/).filter(Boolean).map(x=>x[0].toUpperCase()).join('').slice(0,10)}
+function updateAutoInitials(nameInput,initialInputId){const field=document.getElementById(initialInputId);if(field&&!field.dataset.manual){field.value=initialSuggestion(nameInput.value)}}
+function markManualInitials(el){el.dataset.manual=el.value?'1':''}
+
+function latest(e){return visits(e)[0]}function cs(e){return state.components.filter(c=>c.ecc===e)}
+function progress(e){let all=cs(e).filter(c=>componentApplies(c)&&c.required),done=all.filter(c=>c.status==='Completed');return {count:all.length,done:done.length,pct:all.length?Math.round(done.length/all.length*100):null}}
+function status(s){return `<span class="pill ${s==='Completed'?'good':s==='Ongoing'?'warn':s==='Not Started'?'bad':''}">${show(s||'Not reported')}</span>`}
+function pct(e){const p=progress(e);return p.pct===null?'Not assessed':`${p.pct}% (${p.done}/${p.count})`}
+function gauge(e){const p=progress(e),n=cs(e).filter(componentApplies).length;return p.pct===null?`<span class="muted">${n?'No ECC-required components':'Checklist not configured'}</span>`:`<b>${p.pct}%</b><div class="progress"><div style="width:${p.pct}%"></div></div><span class="tiny">${p.done}/${p.count} ECC-required completed · ${n} applicable</span>`}
+function head(title,sub,buttons=''){return `<div class="top"><div><div class="eyebrow">LANDFILL CONSTRUCTION DATABASE</div><h1>${title}</h1><div class="muted">${sub}</div></div><div class="actions">${buttons}</div></div>`}
+const addButton=`<button class="btn primary" onclick="openVisit()">+ Record Monitoring Visit</button>`;
+function render(){renderBrand();document.querySelectorAll('[data-nav]').forEach(n=>n.classList.toggle('active',n.dataset.nav===view));if(view==='dashboard')dashboard();if(view==='regional')regionalSummary();if(view==='registry')registry();if(view==='history')history();if(view==='profile')profile();if(view==='data')dataPage()}
+function dashboard(){let active=state.landfills.filter(l=>/construction|development/i.test(latest(l.ecc)?.stage||l.stage)).length, monitored=new Set(state.visits.map(v=>v.ecc)).size;
+$('#app').innerHTML=agencyBanner()+head('Monitoring Overview','Latest landfill construction records and verified ECC component statuses.',addButton)+`<div class="cards"><div class="metric"><div class="muted">REGISTERED LANDFILLS</div><div class="value">${state.landfills.length}</div><div class="tiny">ECC-linked project records</div></div><div class="metric"><div class="muted">MONITORED LANDFILLS</div><div class="value">${monitored}</div><div class="tiny">Facilities with at least one visit</div></div><div class="metric"><div class="muted">ACTIVE SITE DEVELOPMENT / CONSTRUCTION</div><div class="value">${active}</div><div class="tiny">Based on latest reported stage</div></div></div><div class="panel"><div class="detailtitle"><h2>Landfill Status Board</h2><div class="actions"><button class="btn primary" onclick="go('regional')">Regional Summary →</button><button class="btn" onclick="go('registry')">Open Registry →</button></div></div><div class="tools"><input class="search" placeholder="Search LGU, ECC number, municipality, province..." value="${esc(term)}" oninput="term=this.value;paintDashboardTable()"></div><div class="tablewrap" id="dashTable"></div></div><div class="alert">Completion is a count of ECC-required components currently marked “Completed”, not an engineering measurement of physical progress. The applicable checklist is configured per landfill under Registry → Manage Components.</div>`;paintDashboardTable()}
+function paintDashboardTable(){let rows=state.landfills.filter(l=>[l.ecc,l.lgu,l.province,l.municipality,l.barangay].join(' ').toLowerCase().includes(term.toLowerCase()));$('#dashTable').innerHTML=`<table><thead><tr><th>LGU / Project</th><th>ECC Number</th><th>Latest Monitoring (MM/DD/YYYY)</th><th>Current Stage</th><th>ECC Component Completion</th><th>Latest Handler</th></tr></thead><tbody>${rows.map(l=>{let v=latest(l.ecc);return `<tr><td><button class="link" onclick="openProfile('${esc(l.ecc)}')">${show(l.lgu)}</button><div class="tiny">${show(l.province)}</div></td><td>${show(l.ecc)}</td><td>${show(dateOut(v?.date))}</td><td>${status(v?.stage||l.stage)}</td><td>${gauge(l.ecc)}</td><td>${show(monitoringTeam(v))}</td></tr>`}).join('')||'<tr><td colspan="6" class="empty">No matching landfill.</td></tr>'}</tbody></table>`}
+
+// Consolidated management view: a snapshot of recorded entries, not a live certification of site conditions.
+function regionalSummary(){
+ const records=state.landfills.slice();
+ const total=records.length, represented=new Set(records.map(l=>String(l.province||'').trim()).filter(Boolean)).size;
+ const monitored=records.filter(l=>!!latest(l.ecc)).length;
+ const without=total-monitored;
+ const stageCounts=new Map();
+ for(const l of records){
+  const v=latest(l.ecc),name=(v?.stage||l.stage||'').trim()||'Not recorded';
+  stageCounts.set(name,(stageCounts.get(name)||0)+1);
+ }
+ const ordered=[...stageCounts].sort((a,b)=>(a[0]==='Not recorded')-(b[0]==='Not recorded')||b[1]-a[1]||a[0].localeCompare(b[0]));
+ const chart=ordered.map(([name,count])=>`<div class="stage-line"><span class="stage-label" title="${esc(name)}">${esc(name)}</span><div class="regional-track ${name==='Not recorded'?'unknown':''}" role="img" aria-label="${esc(name)}: ${count} of ${total} projects"><div style="width:${total?100*count/total:0}%"></div></div><span class="stage-num">${count} / ${total}</span></div>`).join('')||'<div class="regional-empty">No registered landfills</div>';
+ const summaryStatus=['Completed','Ongoing','Not Started','Not Verified'];
+ const colors={'Completed':'#2e9b77','Ongoing':'#dfa74a','Not Started':'#9aa9b8','Not Verified':'#a86e89'};
+ const assessed=records.filter(l=>latest(l.ecc));
+ const included=assessed.flatMap(l=>cs(l.ecc).filter(componentApplies));
+ const sc=Object.fromEntries(summaryStatus.map(t=>[t,included.filter(c=>c.status===t).length]));
+ const other=included.length-summaryStatus.reduce((n,t)=>n+sc[t],0);
+ if(other)sc['Not Verified']+=other;
+ const stack=included.length?summaryStatus.map(t=>`<div class="comp-segment" title="${esc(t)}: ${sc[t]}" style="width:${100*sc[t]/included.length}%;background:${colors[t]}"></div>`).join(''):'<div class="comp-segment" style="width:100%;background:#e4ebf2"></div>';
+ const legend=summaryStatus.map(t=>`<span><span class="key-dot" style="background:${colors[t]}"></span><b>${sc[t]}</b> ${t}</span>`).join('');
+ const sorted=records.sort((a,b)=>Number(!!latest(b.ecc))-Number(!!latest(a.ecc))||String(a.province||'').localeCompare(String(b.province||''))||String(a.lgu||'').localeCompare(String(b.lgu||'')));
+ const rows=sorted.map(l=>{
+  const v=latest(l.ecc),components=cs(l.ecc).filter(componentApplies),counts=Object.fromEntries(summaryStatus.map(s=>[s,components.filter(c=>c.status===s).length]));
+  const comp=v?(components.length?`${counts.Completed} complete · ${counts.Ongoing} ongoing<div class="tiny">${counts['Not Started']} not started · ${components.length} applicable</div>`:'Checklist not configured'):'No visit on record';
+  const finding=v?(v.findings?.trim()||'No findings encoded'):'No monitoring record available';
+  const stage=v?.stage||l.stage||'Not recorded';
+  return `<tr><td><button class="link" onclick="openProfile('${esc(l.ecc)}')">${show(l.lgu)}</button><div class="tiny">${show(l.province)}</div></td><td>${show(l.ecc)}</td><td>${v?esc(dateOut(v.date)):'No visit'}</td><td><span class="row-stage">${esc(stage)}</span></td><td>${comp}</td><td><div class="regional-find" title="${esc(finding)}">${esc(finding)}</div></td></tr>`;
+ }).join('');
+ const snapshot=dateOut(todayISO());
+ $('#app').innerHTML=`<section class="regional-shell">${agencyBanner()}${head('Regional SLF Construction Status','Consolidated summary of registered sanitary landfill projects across CAR.',`<button type="button" class="btn no-print" onclick="window.print()">Print / Save as PDF</button><button type="button" class="btn no-print" onclick="go('dashboard')">← Overview</button>`)}<div class="regional-snap">Database snapshot: ${esc(snapshot)} (MM/DD/YYYY) · Latest saved monitoring records</div>
+  <div class="regional-kpis">
+   <div class="regional-kpi"><div class="k">Registered projects</div><div class="big">${total}</div><small>ECC-linked landfill records</small></div>
+   <div class="regional-kpi"><div class="k">Provinces represented</div><div class="big">${represented}</div><small>With registered SLF projects</small></div>
+   <div class="regional-kpi"><div class="k">Projects with visits</div><div class="big">${monitored}</div><small>At least one saved monitoring visit</small></div>
+   <div class="regional-kpi"><div class="k">No monitoring visit</div><div class="big">${without}</div><small>Not classified as inactive</small></div>
+  </div>
+  <div class="regional-panels">
+   <div class="regional-panel"><h2>Construction Stage Distribution</h2><p class="muted">Latest stage entered per landfill; missing stages are shown separately.</p>${chart}</div>
+   <div class="regional-panel"><h2>Applicable Component Status</h2><p class="muted">${included.length} components across ${assessed.length} project(s) with monitoring history. Not a measure of regional physical accomplishment.</p><div class="component-stack" role="img" aria-label="Component status distribution">${stack}</div><div class="component-legend">${legend}</div>${!included.length?'<p class="tiny">No component status data available for monitored projects.</p>':''}</div>
+  </div>
+  <div class="regional-table-panel"><div class="detailtitle"><h2>Landfill Status at a Glance (${total})</h2><span class="tiny">Latest encoded data · Dates: MM/DD/YYYY</span></div><div class="tablewrap"><table class="regional-table"><colgroup><col style="width:16%"><col style="width:21%"><col style="width:12%"><col style="width:16%"><col style="width:18%"><col style="width:17%"></colgroup><thead><tr><th>LGU / Province</th><th>ECC Number</th><th>Latest Visit</th><th>Recorded Stage</th><th>Component Status</th><th>Latest Findings / Data Gap</th></tr></thead><tbody>${rows||'<tr><td colspan="6" class="regional-empty">No landfills registered.</td></tr>'}</tbody></table></div></div>
+  <div class="regional-note">Source: Landfill Registry, component checklists, and monitoring records saved in this browser. This summary reflects the <strong>latest encoded information</strong>, which may not represent current site conditions. A component count is not a construction accomplishment percentage. Refer to the monitoring team's official reports for detailed findings.</div>
+ </section>`;
+}
+
+function registry(){ $('#app').innerHTML=head('Landfill Registry','Register each landfill and configure which ECC components apply to it.',`<button class="btn primary" onclick="openLandfill()">+ Register Landfill</button> ${addButton}`)+`<div class="panel"><div class="tools"><input id="regSearch" class="search" placeholder="Search any landfill or ECC number" value="${esc(term)}" oninput="term=this.value;paintRegistry()"></div><div class="tablewrap" id="regTable"></div></div>`;paintRegistry()}
+function paintRegistry(){const ls=state.landfills.filter(l=>[l.ecc,l.lgu,l.municipality,l.province].join(' ').toLowerCase().includes(term.toLowerCase()));$('#regTable').innerHTML=`<table><thead><tr><th>LGU</th><th>ECC Number</th><th>Location</th><th>Applicable Components</th><th>Latest Visit (MM/DD/YYYY)</th><th>Actions</th></tr></thead><tbody>${ls.map(l=>`<tr><td><b>${show(l.lgu)}</b></td><td>${show(l.ecc)}</td><td>${show([l.barangay,l.municipality,l.province].filter(Boolean).join(', '))}</td><td><b>${cs(l.ecc).filter(componentApplies).length}</b><div class="tiny">${cs(l.ecc).filter(c=>componentApplies(c)&&c.required).length} ECC-required</div></td><td>${show(dateOut(latest(l.ecc)?.date))}</td><td><div class="reg-actions"><button class="link" onclick="openProfile('${esc(l.ecc)}')">View →</button><button class="btn tinyoutline" onclick="openComponents('${esc(l.ecc)}')">Manage Components</button><button class="btn tinyoutline dangerbtn" title="Permanently delete a mistaken registration" onclick="openDeleteLandfill('${esc(l.ecc)}')">Delete</button></div></td></tr>`).join('')||'<tr><td colspan="6" class="empty">No matching landfills.</td></tr>'}</tbody></table>`}
+function openProfile(e){selected=e;view='profile';render();window.scrollTo(0,0)}
+function profile(){let l=land(selected);if(!l){go('registry');return}let v=latest(l.ecc),p=progress(l.ecc),components=cs(l.ecc).filter(componentApplies),inactive=cs(l.ecc).filter(c=>!componentApplies(c));$('#app').innerHTML=head(show(l.lgu),'Landfill detail · '+esc(l.ecc),`<button class="btn" onclick="openLandfill('${esc(l.ecc)}')">Edit Profile</button><button class="btn" onclick="openComponents('${esc(l.ecc)}')">Manage Components</button><button class="btn" onclick="openPhotoManager('${esc(l.ecc)}')">Site Photos</button><button class="btn primary" onclick="openVisit('${esc(l.ecc)}')">+ Add Monitoring</button>`)+`<div class="panel"><div class="detailtitle"><h2>Project Profile</h2>${status(v?.stage||l.stage)}</div><div class="datalist">${[['ECC Number',l.ecc],['Proponent / LGU',l.lgu],['Province',l.province],['Municipality',l.municipality],['Barangay / Site',l.barangay],['Facility Category',l.category],['Site Area (ha)',l.area],['ECC Date (MM/DD/YYYY)',dateOut(l.eccDate)],['Construction Start (MM/DD/YYYY)',dateOut(l.startDate)],['Latest Visit (MM/DD/YYYY)',dateOut(v?.date)],['Latest Monitoring Team',monitoringTeam(v,'full')]].map(([a,b])=>`<div class="datapoint"><small>${a}</small><strong>${show(b)}</strong></div>`).join('')}</div>${l.scope?`<p class="note">${esc(l.scope)}</p>`:''}</div><div class="panel"><div class="photo-gallery-head"><div><h2 style="margin:0">Site Photographs</h2><p class="muted" style="margin:5px 0 0">Actual site conditions from documented visits; photo uploads are optional.</p></div><button class="btn primary" onclick="openPhotoManager('${esc(l.ecc)}')">+ Add Site Photos</button></div>${photoPanel(l.ecc)}</div><div class="cols"><div class="panel"><div class="detailtitle"><h2>Latest Monitoring Report</h2>${v?visitActions(v):''}</div>${v?`<div class="muted"><span class="date-label">Monitoring Date (MM/DD/YYYY):</span> ${show(dateOut(v.date))} · ${show(v.iis)} · ${show(monitoringTeam(v,'full'))}${v.editedAt?`<span class="revised">Edited</span>`:''}</div><h3 style="margin-top:20px">Works Ongoing</h3><div class="note">${show(v.ongoing)}</div><h3 style="margin-top:18px">Findings / Observations</h3><div class="note">${show(v.findings)}</div><h3 style="margin-top:18px">Follow-up / Recommended Action</h3><div class="note">${show(v.actions)}</div><h3 style="margin-top:18px">Newly Verified Works</h3><div class="note">${show(v.newly)}</div>`:'<p class="empty">No monitoring visit recorded.</p>'}</div><div class="panel"><h2>Applicable ECC Component Status</h2><div style="font-size:30px;font-weight:800">${p.pct===null?'Not assessed':p.pct+'%'}</div><div class="muted">${p.done} completed of ${p.count} ECC-required components · ${components.length} applicable</div><div class="progress" style="width:100%;height:11px;margin:15px 0"><div style="width:${p.pct||0}%"></div></div>${['Completed','Ongoing','Not Started','Not Verified','Not Applicable'].map(s=>`<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #edf2f6"><span>${s}</span><b>${components.filter(c=>c.status===s).length}</b></div>`).join('')}<p class="tiny">Component statuses are derived from the saved visit updates and retained starting records. Editing or deleting a visit recalculates the active checklist. The indicator counts completed ECC-required items, not physical percent completion.</p></div></div><div class="panel"><h2>Applicable Component Checklist (${components.length})</h2><div class="tablewrap"><table><thead><tr><th>Component / Facility</th><th>Required?</th><th>ECC Condition</th><th>Latest Status</th><th>Observation</th></tr></thead><tbody>${components.map(c=>`<tr><td><b>${show(c.name)}</b><div class="tiny">${show(c.group)}</div></td><td>${c.required?'Yes':'No'}</td><td>${show(c.reference)}</td><td>${status(c.status)}</td><td>${show(c.observation)}</td></tr>`).join('')||'<tr><td colspan="5">No applicable components. Open Manage Components in the Registry to configure this site.</td></tr>'}</tbody></table></div>${inactive.length?`<p class="tiny">${inactive.length} components marked not applicable are retained in the database, but excluded from the active checklist.</p>`:''}</div><div class="panel"><h2>Monitoring History (${visits(l.ecc).length})</h2>${visits(l.ecc).map(v=>`<div class="visit"><div class="visit-summary"><div><b>${show(dateOut(v.date))}</b> ${status(v.stage)}${v.editedAt?`<span class="revised">Edited</span>`:''}</div>${visitActions(v)}</div><div class="tiny" style="margin:5px 0 10px">${show(v.iis)} · ${show(monitoringTeam(v,'full'))} · ${v.updates?.length||0} component updates</div><div><b>Findings:</b> ${show(v.findings)}</div><div style="margin-top:7px"><b>Action:</b> ${show(v.actions)}</div>${v.updates?.length?`<details style="margin-top:10px"><summary>See component changes</summary>${v.updates.map(u=>`<p class="tiny"><b>${esc(u.name)}:</b> ${esc(u.before||'Unspecified')} → ${esc(u.after)}${u.observation?' · '+esc(u.observation):''}</p>`).join('')}</details>`:''}</div>`).join('')||'<div class="empty">No visits yet</div>'}</div>`;hydratePhotoImages()}
+function history(){let all=visits();$('#app').innerHTML=head('Monitoring History','Chronological monitoring records. Edit or delete an individual visit here; landfill registration can only be deleted in the Landfill Registry.',addButton)+`<div class="panel"><div class="tools"><input class="search" id="historyQuery" placeholder="Search ECC, LGU, IIS, findings or team" value="${esc(term)}" oninput="term=this.value;paintHistory()"></div><div id="historyTable" class="tablewrap"></div></div>`;paintHistory()}
+function paintHistory(){let ls=visits().filter(v=>[v.ecc,land(v.ecc)?.lgu,v.iis,v.findings,v.team,monitoringTeam(v,'full')].join(' ').toLowerCase().includes(term.toLowerCase()));$('#historyTable').innerHTML=`<table><thead><tr><th>Monitoring Date (MM/DD/YYYY)</th><th>LGU / ECC</th><th>Stage</th><th>Findings</th><th>IIS No.</th><th>Team</th><th>Actions</th></tr></thead><tbody>${ls.map(v=>`<tr><td>${show(dateOut(v.date))}${v.editedAt?'<div class="revised">Edited</div>':''}</td><td><button class="link" onclick="openProfile('${esc(v.ecc)}')">${show(land(v.ecc)?.lgu)}</button><div class="tiny">${show(v.ecc)}</div></td><td>${show(v.stage)}</td><td style="max-width:360px">${show(v.findings)}</td><td>${show(v.iis)}</td><td>${show(monitoringTeam(v,'full'))}</td><td>${visitActions(v)}</td></tr>`).join('')||'<tr><td colspan="7">No visits found.</td></tr>'}</tbody></table>`}
+function personnelRows(){
+ return state.personnel.slice().sort((a,b)=>Number(b.active)-Number(a.active)||a.name.localeCompare(b.name)).map(p=>{
+  const count=state.visits.filter(v=>(v.personnelIds||[]).includes(p.id)).length;
+  return `<tr><td><b>${esc(p.name)}</b>${!p.active?' <span class="pill">Inactive</span>':''}</td><td><b>${esc(p.initials)}</b></td><td><div class="actions"><button class="btn" onclick="openPersonnelEditor('${esc(p.id)}')">Edit</button><button class="btn ${p.active?'dangerbtn':''}" onclick="togglePersonnel('${esc(p.id)}')">${p.active?'Deactivate':'Reactivate'}</button>${!count?`<button class="btn dangerbtn" onclick="removePersonnel('${esc(p.id)}')">Remove</button>`:''}</div></td></tr>`
+ }).join('')||'<tr><td colspan="3" class="empty">No monitoring personnel registered. Add a name and initials to get started.</td></tr>';
+}
+function dataPage(){ $('#app').innerHTML=head('Backup & Data','Manage monitoring personnel and protect your offline records.')+`
+ <div class="panel"><div class="detailtitle"><div><h2>Monitoring Personnel Directory</h2><p class="muted">Add each person once. Select one or more personnel when recording a monitoring visit; the Overview displays initials only. Deactivating a person keeps old monitoring records intact.</p></div><button class="btn primary" onclick="openPersonnelEditor()">+ Add Personnel</button></div>
+ <div class="tablewrap"><table class="staff-table"><thead><tr><th>Full Name</th><th>Initials</th><th>Actions</th></tr></thead><tbody>${personnelRows()}</tbody></table></div></div>
+ <div class="cols"><div class="panel"><h2>Export Your Data</h2><p class="muted">Download a complete EMB-CAR SLF backup (<b>.swm</b>) containing landfills, component checklists, monitoring history, personnel directory and site photographs.</p><button class="btn primary" onclick="downloadBackup()">↓ Download Full Backup (.swm)</button><p class="muted" style="margin-top:20px">Optional spreadsheet exports:</p><div class="actions"><button class="btn" onclick="csvExport('landfills')">Export Registry CSV</button><button class="btn" onclick="csvExport('visits')">Export Visits CSV</button><button class="btn" onclick="csvExport('components')">Export Components CSV</button><button class="btn" onclick="csvExport('personnel')">Export Personnel CSV</button></div></div>
+ <div class="panel"><h2>Restore an SWM Backup</h2><p class="muted">Import an <b>.swm</b> database backup. This replaces all records saved in this browser, including the monitoring personnel directory and photographs. Backups from earlier system versions remain compatible.</p><button class="btn" onclick="$('#fileinput').click()">↑ Import SWM Backup</button><p class="alert" style="margin-top:18px">This is an offline, single-browser application. It does not synchronize with other computers. Keep backup files in EMB-approved storage. The .swm extension identifies this system's backup; it does not encrypt the contents.</p></div></div>
+ <div class="panel"><h2>Database Inventory</h2><div class="datalist"><div class="datapoint"><small>Landfills</small><strong>${state.landfills.length}</strong></div><div class="datapoint"><small>Monitoring visits</small><strong>${state.visits.length}</strong></div><div class="datapoint"><small>ECC component records</small><strong>${state.components.length}</strong></div><div class="datapoint"><small>Monitoring personnel</small><strong>${state.personnel.length}</strong></div><div class="datapoint"><small>Site photographs</small><strong>${state.photos.length}</strong></div></div></div>`}
+function addOrUpdatePerson(name,initials,id=''){
+ name=String(name||'').trim().replace(/\s+/g,' ');
+ initials=String(initials||'').trim().toUpperCase();
+ if(name.length<2||name.length>100){alert('Enter a full name (2–100 characters).');return null}
+ if(!/^[A-Z0-9.\-]{1,12}$/.test(initials)){alert('Initials must contain 1–12 letters, digits, periods, or hyphens, without spaces.');return null}
+ if(state.personnel.some(p=>p.id!==id&&normName(p.name)===normName(name))){alert('This full name is already in the directory.');return null}
+ if(state.personnel.some(p=>p.id!==id&&p.initials===initials)){alert('These initials are already assigned to another person. Use distinct initials to avoid confusion.');return null}
+ const p=id?personById(id):{id:newLocalId('p-'),active:true};
+ if(!p)return null;
+ const before=JSON.stringify(state);
+ if(!id)state.personnel.push(p);
+ p.name=name;p.initials=initials;
+ // Keep prior visits linked to the same personnel record even after a typo correction.
+ for(const v of state.visits){
+  if(!(v.personnelIds||[]).includes(p.id))continue;
+  v.personnelSnapshot=(v.personnelIds||[]).map(pid=>{
+   const x=personById(pid)||(v.personnelSnapshot||[]).find(q=>q.id===pid);
+   return x?{id:pid,name:x.name,initials:x.initials}:null;
+  }).filter(Boolean);
+  v.team=monitoringTeam(v);
+ }
+ for(const e of new Set(state.visits.filter(v=>(v.personnelIds||[]).includes(p.id)).map(v=>v.ecc)))rebuildComponentStatuses(e);
+ try{persist()}catch(err){state=JSON.parse(before);alert('Personnel changes could not be saved: '+err.message);return null}
+ return p;
+}
+function openPersonnelEditor(id=''){
+ const p=id?personById(id):null;if(id&&!p)return alert('Personnel record not found.');
+ modal(`<div class="modalhead"><h2>${p?'Edit Personnel':'Add Monitoring Personnel'}</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">A person's full name appears in monitoring selections. The Overview uses initials only.</p>
+ <form onsubmit="savePersonnelEditor(event,'${esc(id)}')" class="formgrid" id="personnelForm">
+ <div class="field full"><label for="staffFullName">Full name *</label><input id="staffFullName" class="search" required maxlength="100" value="${esc(p?.name||'')}" placeholder="e.g., Juan Dela Cruz" oninput="updateAutoInitials(this,'staffInitials')"></div>
+ <div class="field full"><label for="staffInitials">Initials *</label><input id="staffInitials" class="search" required maxlength="12" value="${esc(p?.initials||'')}" placeholder="e.g., JDC" oninput="markManualInitials(this)"><p class="tiny">Edit the suggested initials if necessary. Initials must be unique.</p></div>
+ <div class="actions full"><button class="btn" type="button" onclick="closeModal()">Cancel</button><button class="btn primary" type="submit">Save Personnel</button></div></form>`);
+}
+function savePersonnelEditor(ev,id){ev.preventDefault();const p=addOrUpdatePerson($('#staffFullName').value,$('#staffInitials').value,id);if(!p)return;closeModal();dataPage()}
+function togglePersonnel(id){const p=personById(id);if(!p)return;p.active=!p.active;try{persist()}catch(e){p.active=!p.active;return alert(e.message)}dataPage()}
+function removePersonnel(id){const p=personById(id);if(!p)return;
+ if(state.visits.some(v=>(v.personnelIds||[]).includes(id)))return alert('This person has associated monitoring visits. Deactivate the person instead to preserve historical records.');
+ if(!confirm(`Remove ${p.name} (${p.initials}) from the personnel directory?`))return;
+ state.personnel=state.personnel.filter(q=>q.id!==id);try{persist()}catch(e){state.personnel.push(p);return alert(e.message)}dataPage();
+}
+
+function go(v){view=v;term='';render();window.scrollTo(0,0)}document.querySelectorAll('[data-nav]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.nav)));
+function modal(s){$('#modalhost').innerHTML=`<div class="modalbg" onclick="if(event.target===this)closeModal()"><div class="modal">${s}</div></div>`}function closeModal(){revokeVisitPreviews();$('#modalhost').innerHTML=''}
+function field(name,label,value='',type='text',wide=false){
+ const isDate=type==='date';
+ return `<div class="field ${wide?'full':''}"><label for="f_${name}">${label}${isDate?' (MM/DD/YYYY)':''}</label>${type==='textarea'?`<textarea id="f_${name}" name="${name}">${esc(value)}</textarea>`:`<input id="f_${name}" name="${name}" type="${isDate?'text':type}" value="${esc(isDate?dateOut(value):value)}" ${isDate?'inputmode="numeric" maxlength="10" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}" title="Enter the date as MM/DD/YYYY, for example 06/04/2026" autocomplete="off"':''}>`}${isDate?'<div class="tiny date-help">Month / Day / Year · Example: 06/04/2026</div>':''}</div>`
+}
+
+function openLandfill(e=''){let l=e?land(e):{};initPicker(e);modal(`<div class="modalhead"><h2>${e?'Edit Landfill Registry':'Register a New Landfill'}</h2><button class="close" onclick="closeModal()">×</button></div><form id="landForm" onsubmit="saveLandfill(event,'${esc(e)}')"><h3>1. Project Information</h3><div class="formgrid">${field('ecc','ECC Number *',l.ecc||'')}${field('lgu','LGU / Proponent *',l.lgu||'')}${field('province','Province',l.province)}${field('municipality','Municipality',l.municipality)}${field('barangay','Site / Barangay',l.barangay)}${field('category','Facility Category',l.category)}${field('area','Site Area (ha)',l.area,'number')}${field('eccDate','ECC Date',l.eccDate,'date')}${field('startDate','Construction Start Date',l.startDate,'date')}${field('scope','ECC Scope / Project Description',l.scope,'textarea',true)}</div>${pickerMarkup()}<p class="tiny">ECC number is the unique database key and cannot be changed after registration. Applicable components can be revised from the Registry or landfill profile.</p><div class="actions" style="margin-top:17px"><button class="btn" type="button" onclick="closeModal()">Cancel</button><button class="btn primary" type="submit">${e?'Save Landfill & Components':'Register Landfill & Components'}</button></div></form>`);if(e)$('#f_ecc').readOnly=true;paintPicker()}
+function saveLandfill(ev,original){ev.preventDefault();const data=Object.fromEntries(new FormData(ev.target));data.ecc=String(data.ecc||'').trim().toUpperCase();if(!data.ecc||!data.lgu.trim()){alert('ECC number and LGU are required.');return}if(!original&&land(data.ecc)){alert('ECC number already exists.');return}try{data.eccDate=dateIn(data.eccDate,'ECC Date');data.startDate=dateIn(data.startDate,'Construction Start Date')}catch(err){alert(err.message);return}if(original){const current=land(original);if(!current)return alert('This landfill was not found.');Object.assign(current,data)}else state.landfills.push({...data,stage:''});applyPicker(data.ecc);persist();closeModal();openProfile(data.ecc)}
+
+function openDeleteLandfill(e){if(view!=='registry')return alert('Landfill registration deletion is available only in the Landfill Registry.');
+ const l=land(e);
+ if(!l)return alert('This landfill is no longer in the registry.');
+ const visitCount=state.visits.filter(v=>v.ecc===e).length;
+ const compCount=state.components.filter(c=>c.ecc===e).length;
+ modal(`<div class="modalhead"><h2>Delete Landfill Registration</h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div>
+ <p class="muted">Use this only for mistakenly registered or duplicate entries.</p>
+ <div class="dangerpanel"><strong>Permanent deletion · Cannot be undone</strong><div style="margin-top:7px"><b>${show(l.lgu)}</b><br>ECC No.: <b>${esc(e)}</b></div>
+ <p>This removes <b>1 landfill registration</b>, <b>${compCount} associated component record${compCount===1?'':'s'}</b>, and <b>${visitCount} monitoring visit${visitCount===1?'':'s'}</b> from this browser's database. It also removes this landfill from the Overview, Monitoring History, and search results. Other landfills are not affected. The shared component catalog remains available.</p>
+ ${visitCount?'<b>Warning:</b> This landfill already has monitoring history. Retain an official backup before proceeding.':''}</div>
+ <div class="deleteverify"><label for="deleteEccConfirmation">Type the exact ECC number to confirm deletion:</label>
+ <div><code>${esc(e)}</code></div><input id="deleteEccConfirmation" type="text" autocomplete="off" spellcheck="false" placeholder="Enter ECC number exactly" oninput="updateDeleteButton()">
+ <label class="ack"><input id="deleteBackupAck" type="checkbox" onchange="updateDeleteButton()">I have saved a backup (or confirm this record needs no retention) and understand that associated monitoring and component records will be permanently deleted.</label>
+ </div>
+ <div class="actions" style="justify-content:flex-end"><button type="button" class="btn" onclick="downloadBackup()">↓ Download Full Backup</button><button type="button" class="btn" onclick="closeModal()">Cancel</button><button type="button" id="deleteConfirmBtn" data-ecc="${esc(e)}" class="btn dangerbtnsolid" disabled onclick="performDeleteLandfill('${esc(e)}')">Delete Landfill Permanently</button></div>`);
+}
+function updateDeleteButton(){
+ const input=$('#deleteEccConfirmation'),btn=$('#deleteConfirmBtn');
+ if(!input||!btn)return;
+ const e=btn.dataset.ecc;
+ btn.disabled=!(e&&input.value.trim()===e&&$('#deleteBackupAck')?.checked);
+}
+function performDeleteLandfill(e){if(view!=='registry')return alert('To delete a landfill registration, open the Landfill Registry.');
+ if(!land(e))return alert('This landfill is no longer registered.');
+ if($('#deleteEccConfirmation')?.value.trim()!==e||!$('#deleteBackupAck')?.checked)return alert('Enter the exact ECC number and acknowledge the permanent deletion first.');
+ const visitCount=state.visits.filter(v=>v.ecc===e).length;
+ if(!confirm(`Final confirmation: permanently delete ${land(e).lgu} (${e}) and all ${visitCount} related monitoring visit(s)?`))return;
+ const prior=JSON.stringify(state);const deletedPhotoIds=state.photos.filter(p=>p.ecc===e).map(p=>p.id);state.photos=state.photos.filter(p=>p.ecc!==e);
+ state.landfills=state.landfills.filter(l=>l.ecc!==e);
+ state.components=state.components.filter(c=>c.ecc!==e);
+ state.visits=state.visits.filter(v=>v.ecc!==e);
+ try{persist()}catch(err){state=JSON.parse(prior);alert('Deletion could not be saved. The previous data have been restored. Details: '+err.message);return}
+ closeModal();term='';selected='';view='registry';render();
+ for(const id of deletedPhotoIds)deletePhotoBytes(id).catch(console.warn);
+ alert('The landfill registration and its associated records and photographs have been removed from this browser.');
+}
+
+const statuses=['Not Started','Ongoing','Completed','Not Verified'];
+function openVisit(e='',visitId=''){
+ const original=visitId?state.visits.find(v=>v.id===visitId):null;
+ if(visitId&&!original)return alert('This monitoring record was not found.');
+ if(!state.landfills.length)return alert('Register a landfill first.');
+ const editing=!!original, selectedE=original?.ecc||e||state.landfills[0]?.ecc||'';
+ const opts=state.landfills.map(l=>`<option value="${esc(l.ecc)}" ${l.ecc===selectedE?'selected':''}>${esc(l.lgu)} — ${esc(l.ecc)}</option>`).join('');
+ const prior=latest(selectedE), d=original||{};
+ const stages=['Pre-construction','Site Development','Active Construction','Temporarily Suspended','For Completion Validation','Construction Completed / Awaiting Operation'];
+ const priorStage=editing?(d.stage||''):(prior?.stage||land(selectedE)?.stage||'');
+ const stageOptions=stages.map(x=>`<option value="${esc(x)}" ${x===priorStage?'selected':''}>${esc(x)}</option>`).join('');
+ modal(`<div class="modalhead"><h2>${editing?'Edit Monitoring Visit':'New Monitoring Visit'}</h2><button class="close" onclick="closeModal()">×</button></div>
+ <p class="muted">${editing?'Correct the recorded information below, including any component updates. Other monitoring visits will remain intact.':'Save the visit once. The latest report, history and component statuses update automatically.'}</p>
+ ${editing?`<div class="visit-edit-note"><b>Editing an existing report</b> · ${esc(land(selectedE)?.lgu||selectedE)} · ${show(dateOut(d.date))} · ${show(d.iis)}<br>Changing the monitoring date or component updates will recalculate the latest verified status for this landfill.</div>`:''}
+ <form id="visitForm" data-edit-id="${esc(visitId)}" onsubmit="saveVisit(event,'${esc(visitId)}')"><div class="formgrid">
+ <div class="field full"><label>Select landfill / ECC number *</label><select id="visitEcc" name="ecc" required ${editing?'disabled':''} onchange="paintComponentInputs()">${opts}</select>${editing?`<input type="hidden" name="ecc" value="${esc(selectedE)}">`:''}</div>
+ ${field('date','Monitoring Date *',editing?d.date:todayISO(),'date')}
+ <div class="field"><label for="visitStage">Current Construction Stage</label><select id="visitStage" name="stage"><option value="">Select stage</option>${stageOptions}</select></div>
+ <div class="field full"><label>Monitoring Personnel (select one or more)</label>
+  <div id="staffChoiceList" class="staff-picker">${staffChoiceMarkup(editing?(d.personnelIds||[]):[])}</div>
+  ${editing&&!d.personnelIds?.length&&d.team?`<p class="tiny">Previously recorded team: <b>${show(d.team)}</b>. It will be preserved unless you select personnel above.</p>`:''}
+  <details id="quickStaffArea" class="staff-quick-add"><summary>+ Quick add a person</summary><div class="staff-quick-grid"><input class="search" id="quickStaffName" placeholder="Full name" oninput="updateAutoInitials(this,'quickStaffInitials')"><input class="search" id="quickStaffInitials" maxlength="12" placeholder="Initials" oninput="markManualInitials(this)"><button class="btn" type="button" onclick="quickAddPersonnel()">Add & Select</button></div></details>
+  <p class="tiny">Manage names and initials anytime under Backup & Data → Monitoring Personnel Directory.</p></div>
+ ${field('iis','IIS Reference Number',d.iis)}
+ ${field('counterparts','LGU Counterparts',d.counterparts)}</div>
+ <section class="component-visit-block" aria-label="ECC Component Verification">
+  <div class="component-visit-head"><h3>2. Verify Landfill Component Conditions</h3>
+  <p class="component-visit-guide">Review the applicable ECC components for this landfill. Choose a status <b>only for components assessed during this visit</b>, even if their condition is unchanged. Components left as “Not assessed this visit” keep their previously recorded status and verification date.</p>
+  <div class="component-visit-tools"><input type="search" id="componentVisitSearch" aria-label="Search components" placeholder="Find a component..." oninput="filterComponentVisitRows()"><span id="componentVisitCount" class="component-visit-count">0 component updates</span></div></div>
+  <div id="componentInputs" class="component-visit-list"></div>
+  <div class="component-visit-footer">Each chosen component status is attached to this monitoring date, IIS reference and selected personnel. Existing monitoring history is retained.</div>
+ </section>
+ <h3 style="margin:22px 0 12px">3. Findings and Recommendations</h3><div class="formgrid">
+ ${field('ongoing','Works / Components Ongoing',d.ongoing,'textarea',true)}
+ ${field('newly','Newly Completed / Verified Works',d.newly,'textarea',true)}
+ ${field('findings','Key Findings / Observations',d.findings,'textarea',true)}
+ ${field('actions','Recommended Actions / Follow-up',d.actions,'textarea',true)}
+ ${field('remarks','Other Notes / Report Link',d.remarks,'textarea',true)}</div>
+ <div style="margin-top:20px;padding:16px;background:#f4f8fa;border-radius:10px"><h3>4. Site Photographs (optional)</h3><p class="photo-note">Choose multiple actual site photos at once (up to 15). Adding photos is optional; they are resized automatically. You can also upload them later from the landfill profile.</p><input id="visitPhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden onchange="checkPhotoSelection(this)"><div class="photo-form-drop" id="visitPhotoDrop" tabindex="0" role="button" onclick="$('#visitPhotos').click()" onkeydown="if(event.key==='Enter')$('#visitPhotos').click()">📷 Choose photos or drag them here</div><div class="tiny" id="visitPhotosNote">No photograph is required to submit this visit.</div><div class="visit-photo-preview" id="visitPhotosPreview"></div></div><div class="actions" style="margin-top:19px"><button type="button" class="btn" onclick="addComponentForm()">⚙ Manage Components in Registry</button><button type="button" class="btn" onclick="closeModal()">Cancel</button><button type="submit" class="btn primary">${editing?'Save Monitoring Corrections':'Save Monitoring Visit'}</button></div></form>`);
+ paintComponentInputs();setupPhotoDrop('visitPhotoDrop',files=>setVisitPhotoFiles(files));
+}
+function paintComponentInputs(){
+ const e=$('#visitEcc').value, editId=$('#visitForm')?.dataset.editId||'', original=editId?state.visits.find(v=>v.id===editId):null;
+ const all=cs(e).filter(c=>componentApplies(c)||(original?.updates||[]).some(u=>updateMatchesComponent(u,c)));
+ const groups=new Map();
+ for(const c of all){const group=c.group||'Other Components';if(!groups.has(group))groups.set(group,[]);groups.get(group).push(c)}
+ $('#componentInputs').innerHTML=Array.from(groups.entries()).map(([group,items])=>`<div class="componentgroup"><div class="componentgroup-label">${esc(group)} · ${items.length}</div>${items.map(c=>{
+  const recorded=(original?.updates||[]).find(u=>updateMatchesComponent(u,c)),value=recorded?.after||'';
+  const current=c.status||'Not Verified';
+  return `<div class="componentedit ${value?'updated':''}" data-component-name="${esc((c.name+' '+group).toLowerCase())}"><div><div class="component-label"><b>${esc(c.name)}</b></div><div class="previous-verification">${c.required?'ECC-required':'Applicable / Optional'}${componentApplies(c)?'':' · No longer applicable'}<br>Last recorded: <b>${esc(current)}</b>${c.verifiedDate?' · '+esc(dateOut(c.verifiedDate)):''}</div></div><div><label class="status-select-label" for="cv-${esc(c.id)}">Condition verified this visit</label><select id="cv-${esc(c.id)}" class="cstatus" data-id="${esc(c.id)}" onchange="updateComponentVisitRow(this)"><option value="">Not assessed this visit</option>${statuses.map(s=>`<option value="${s}" ${s===value?'selected':''}>${s}</option>`).join('')}</select><button class="same-status" type="button" data-status="${esc(current)}" onclick="confirmUnchangedComponent(this)" ${!statuses.includes(current)?'disabled':''}>Confirm same status</button></div><div><label class="status-select-label">Finding / observation (optional)</label><input class="cobservation" data-id="${esc(c.id)}" value="${esc(recorded?.observation||'')}" placeholder="Actual site condition / finding" ${!value?'disabled':''}></div></div>`;
+ }).join('')}</div>`).join('')||'<div class="component-not-configured">No applicable components configured. Go to Landfill Registry → Manage Components to set the site-specific checklist.</div>';
+ const search=$('#componentVisitSearch');if(search)search.value='';
+ updateComponentVisitCount();
+ if(!original){const stage=$('#visitStage');if(stage)stage.value=latest(e)?.stage||land(e)?.stage||''}
+}
+function updateComponentVisitRow(select){
+ const row=select.closest('.componentedit');if(!row)return;
+ row.classList.toggle('updated',!!select.value);
+ const note=row.querySelector('.cobservation');if(note)note.disabled=!select.value;
+ updateComponentVisitCount();
+}
+function confirmUnchangedComponent(btn){
+ const row=btn.closest('.componentedit'),sel=row?.querySelector('.cstatus');
+ if(!sel)return;
+ const current=btn.dataset.status||'';
+ if(!statuses.includes(current))return;
+ sel.value=current;updateComponentVisitRow(sel);
+}
+function updateComponentVisitCount(){
+ const selected=Array.from(document.querySelectorAll('#visitForm .cstatus')).filter(s=>!!s.value).length;
+ const total=document.querySelectorAll('#visitForm .cstatus').length;
+ const counter=$('#componentVisitCount');if(counter)counter.textContent=`${selected} of ${total} component${total===1?'':'s'} assessed`;
+}
+function filterComponentVisitRows(){
+ const text=($('#componentVisitSearch')?.value||'').toLowerCase().trim();
+ for(const group of document.querySelectorAll('#componentInputs .componentgroup')){
+  let visible=0;
+  for(const row of group.querySelectorAll('.componentedit')){
+   const match=(row.dataset.componentName||'').includes(text);
+   row.style.display=match?'':'none';if(match)visible++;
+  }
+  group.style.display=visible?'':'none';
+ }
+}
+function addComponentForm(){
+ const e=$('#visitEcc').value;if(!e)return;
+ if(confirm('Set up applicable components in the Registry? Unsaved monitoring form entries will be lost.')){closeModal();openComponents(e)}
+}
+async function saveVisit(ev,visitId=''){
+ ev.preventDefault();const chosenPhotos=Array.from($('#visitPhotos')?.files||[]);if(chosenPhotos.length>15)return alert('Select up to 15 photographs per monitoring visit.');const d=Object.fromEntries(new FormData(ev.target)),e=d.ecc;
+ if(!land(e))return alert('Please register the landfill first.');
+ try{d.date=dateIn(d.date,'Monitoring Date',true)}catch(err){return alert(err.message)}
+ const original=visitId?state.visits.find(v=>v.id===visitId):null;
+ if(visitId&&!original)return alert('This monitoring visit no longer exists.');
+ if(original&&original.ecc!==e)return alert('The landfill / ECC number cannot be changed when editing a visit.');
+ const ids=currentStaffIds();
+ // Older visits with free-text initials are left as-is until personnel are explicitly selected.
+ const preservingLegacy=!!original&&!Array.isArray(original.personnelIds)&&!ids.length;
+ if(preservingLegacy){d.team=original.team||'';delete d.personnelIds;delete d.personnelSnapshot}
+ else{
+  d.personnelIds=ids;
+  d.personnelSnapshot=ids.map(id=>personById(id)).filter(Boolean).map(p=>({id:p.id,name:p.name,initials:p.initials}));
+  d.team=d.personnelSnapshot.map(p=>p.initials).join(' / ');
+ }
+ const changes=[];
+ for(const sel of document.querySelectorAll('#visitForm .cstatus')){
+  if(!sel.value)continue;
+  const c=state.components.find(x=>x.id===sel.dataset.id);
+  if(!c||c.ecc!==e)return alert('A component in the current checklist could not be matched. Please reopen the form.');
+  const inp=Array.from(document.querySelectorAll('#visitForm .cobservation')).find(x=>x.dataset.id===c.id);
+  changes.push({componentId:c.id,name:c.name,before:'',after:sel.value,observation:inp?.value.trim()||''});
+ }
+ if(!changes.length&&cs(e).some(componentApplies)&&!confirm('No component conditions were recorded for this visit. Continue saving without updating the checklist?'))return;
+ const now=new Date().toISOString(), previous=JSON.stringify(state);
+ if(original){
+  const snapshot={...original};delete snapshot.revisions;
+  Object.assign(original,d,{updates:changes,editedAt:now,revisions:[...(original.revisions||[]),{at:now,record:snapshot}]});
+ }else state.visits.push({...d,id:newLocalId('v-'),updates:changes,createdAt:now});
+ rebuildComponentStatuses(e);
+ try{persist()}catch(err){state=JSON.parse(previous);alert('The monitoring changes could not be saved. Previous data restored. Details: '+err.message);return}
+ closeModal();openProfile(e);
+ if(chosenPhotos.length){
+  try{const results=await addSitePhotos(chosenPhotos,{ecc:e,visitId:original?.id||state.visits[state.visits.length-1].id,date:d.date,caption:'Site condition during monitoring',iis:d.iis||''});if(results){openProfile(e)}}
+  catch(err){alert('The monitoring report was saved, but its photographs could not all be stored: '+err.message)}
+ }
+}
+function openDeleteVisit(id){
+ const v=state.visits.find(v=>v.id===id);
+ if(!v)return alert('This monitoring record was not found.');
+ const l=land(v.ecc), n=v.updates?.length||0;
+ modal(`<div class="modalhead"><h2>Delete Monitoring Visit</h2><button class="close" onclick="closeModal()">×</button></div>
+ <div class="dangerpanel"><b>Permanent deletion · Cannot be undone without a previous SWM backup</b><p><b>${show(l?.lgu)}</b> · ${show(v.ecc)}<br>Monitoring date: <b>${show(dateOut(v.date))}</b> · IIS: ${show(v.iis)}<br>Component updates in this visit: <b>${n}</b></p>
+ <p>Only this monitoring visit will be deleted. The landfill registration, other reports and component registry will remain. The latest report and component statuses will be recalculated from the remaining records.</p></div>
+ <div class="deleteverify"><label class="ack"><input id="visitDeleteAck" type="checkbox" onchange="updateVisitDeleteButton()">I understand that this monitoring visit and its saved revisions will be removed from the browser database. I have saved a backup if this report needs retention.</label></div>
+ <div class="actions" style="justify-content:flex-end"><button type="button" class="btn" onclick="downloadBackup()">↓ Download Full Backup</button><button type="button" class="btn" onclick="closeModal()">Cancel</button><button type="button" id="visitDeleteButton" data-id="${esc(id)}" class="btn dangerbtnsolid" disabled onclick="performDeleteVisit('${esc(id)}')">Delete This Visit</button></div>`);
+}
+function updateVisitDeleteButton(){const b=$('#visitDeleteButton');if(b)b.disabled=!$('#visitDeleteAck')?.checked}
+function performDeleteVisit(id){
+ const v=state.visits.find(v=>v.id===id);if(!v)return alert('This monitoring visit no longer exists.');
+ if(!$('#visitDeleteAck')?.checked)return alert('Please acknowledge the permanent deletion first.');
+ if(!confirm(`Permanently delete the ${dateOut(v.date)} monitoring visit for ${land(v.ecc)?.lgu||v.ecc}?`))return;
+ const prior=JSON.stringify(state),e=v.ecc;
+ state.visits=state.visits.filter(x=>x.id!==id);
+ for(const photo of state.photos)if(photo.visitId===id)photo.visitId='';
+ rebuildComponentStatuses(e);
+ try{persist()}catch(err){state=JSON.parse(prior);alert('Deletion could not be saved. Previous data restored. Details: '+err.message);return}
+ closeModal();render();
+ alert('The selected monitoring visit has been deleted. The remaining history and component statuses were recalculated.');
+}
+function download(name,content,mime){let b=new Blob([content],{type:mime}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}async function downloadBackup(){try{
+ const copy=structuredClone(state);copy.photoFiles={};
+ for(const p of state.photos){const data=await getPhotoBytes(p.id);if(!data)throw Error('Missing photograph: '+(p.name||p.id));copy.photoFiles[p.id]=data}
+ download('EMB-CAR_SLF_Backup_'+new Date().toISOString().slice(0,10)+'.swm','SWM-LANDFILL-DATABASE-V1\n'+JSON.stringify(copy),'application/octet-stream');
+ }catch(e){alert('Backup not created: '+e.message+'. Ensure photos are available, or remove broken image references.')}}
+function csvExport(k){let arr=state[k];if(!arr.length)return alert('No data found.');let keys=[...new Set(arr.flatMap(x=>Object.keys(x)))].filter(x=>x!=='updates');let cell=x=>'"'+String(x??'').replace(/"/g,'""')+'"';download('SLF_'+k+'.csv',[keys.map(cell).join(','),...arr.map(v=>keys.map(k=>cell(v[k])).join(','))].join('\r\n'),'text/csv;charset=utf-8')}
+$('#fileinput').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;
+ try{
+  const dataText=await f.text();
+  const swmHeader='SWM-LANDFILL-DATABASE-V1\n';
+  const dat=JSON.parse(dataText.startsWith(swmHeader)?dataText.slice(swmHeader.length):dataText);
+  if(!Array.isArray(dat.landfills)||!Array.isArray(dat.visits)||!Array.isArray(dat.components))throw Error('Invalid backup structure');
+  if(dat.photos&&!Array.isArray(dat.photos))throw Error('Invalid photo list');
+   if(dat.personnel&&!Array.isArray(dat.personnel))throw Error('Invalid monitoring personnel directory');
+  const list=dat.photos||[],files=dat.photoFiles||{};
+  for(const p of list){if(!p.id||!p.ecc||typeof files[p.id]!=='string'||!files[p.id].startsWith('data:image/'))throw Error('Backup has incomplete photo data for '+(p.name||p.id))}
+  if(!confirm(`Replace the current browser data with ${dat.landfills.length} landfills and ${list.length} photographs? Download a full backup first if needed.`))return;
+  // Preflight photo storage before replacing the on-screen records. Earlier v5 backups need no photo files.
+  await photoDatabase();
+  const old=state;
+  state=dat;delete state.photoFiles;normalizeState();
+  try{persist()}catch(e){state=old;throw e}
+  await clearAllPhotoBytes();
+  for(const p of list)await putPhotoBytes(p.id,files[p.id]);
+  go('dashboard');alert('Backup restored, including photographs.');
+ }catch(e){alert('Import failed: '+e.message+'. If some image files were missing, restore again from a full backup.')}finally{ev.target.value=''}
+});
+
+// Photo metadata is in state.photos; the actual image data is stored in IndexedDB, not localStorage.
+function photoDatabase(){return new Promise((resolve,reject)=>{
+ if(!window.indexedDB)return reject(Error('This browser does not support image storage. Use Chrome or Edge.'));
+ const req=indexedDB.open('EMB_CAR_SLF_Photos',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('images'))req.result.createObjectStore('images')};req.onerror=()=>reject(req.error||Error('Cannot open image database'));req.onsuccess=()=>resolve(req.result);
+})}
+async function photoTransaction(mode,operate){const db=await photoDatabase();return new Promise((resolve,reject)=>{
+ const tr=db.transaction('images',mode),store=tr.objectStore('images');let result;
+ try{const req=operate(store);if(req){req.onsuccess=()=>result=req.result;req.onerror=()=>reject(req.error||Error('Photo transaction failed'))}}catch(e){db.close();reject(e);return}
+ tr.oncomplete=()=>{db.close();resolve(result)};tr.onerror=()=>{db.close();reject(tr.error||Error('Photo database error'))};tr.onabort=()=>{db.close();reject(tr.error||Error('Photo database aborted'))};
+})}
+function putPhotoBytes(id,data){return photoTransaction('readwrite',st=>st.put(data,id))}
+function getPhotoBytes(id){return photoTransaction('readonly',st=>st.get(id))}
+function deletePhotoBytes(id){return photoTransaction('readwrite',st=>st.delete(id))}
+function clearAllPhotoBytes(){return photoTransaction('readwrite',st=>st.clear())}
+function photosFor(e){return (state.photos||[]).filter(p=>p.ecc===e).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''))}
+function photoPanel(e){const arr=photosFor(e);return arr.length?`<div class="photo-count">${arr.length} photograph${arr.length!==1?'s':''} on file · Most recent photo (MM/DD/YYYY): ${show(dateOut(arr[0].date))}</div><div class="photo-grid">${arr.slice(0,6).map(photoCard).join('')}</div>${arr.length>6?`<button class="link" onclick="openPhotoManager('${esc(e)}')">View all ${arr.length} photos →</button>`:''}`:'<div class="photo-empty">No site photographs uploaded yet. Add actual site photos whenever available; uploads are optional.</div>'}
+function photoCard(p,management=false){const v=p.visitId?state.visits.find(x=>x.id===p.visitId):null;return `<article class="photo-card"><img data-photo-id="${esc(p.id)}" alt="Actual site photograph of ${esc(land(p.ecc)?.lgu||'landfill')}" title="Click to enlarge" onclick="openPhotoPreview('${esc(p.id)}')"><div class="photo-content"><div class="photo-title">${show(p.caption||'Site condition')}</div><div class="photo-meta">Photo date: ${show(dateOut(p.date))}${v?' · '+esc(v.iis||'Monitoring visit'):p.iis?' · '+esc(p.iis):''}</div>${management?`<div class="actions" style="margin-top:10px"><button class="btn tinyoutline" onclick="editPhotoInfo('${esc(p.id)}')">Edit Details</button><button class="btn tinyoutline dangerbtn" onclick="removeSitePhoto('${esc(p.id)}')">Remove</button></div>`:''}</div></article>`}
+async function hydratePhotoImages(){const imgs=Array.from(document.querySelectorAll('img[data-photo-id]'));for(const img of imgs){try{const bytes=await getPhotoBytes(img.dataset.photoId);if(img.isConnected){if(bytes)img.src=bytes;else{img.alt='Image missing — restore from a complete backup';img.style.minHeight='85px'}}}catch(err){if(img.isConnected)img.alt='Image unavailable'}}}
+let visitPhotoUrls=[];
+function revokeVisitPreviews(){for(const url of visitPhotoUrls)URL.revokeObjectURL(url);visitPhotoUrls=[]}
+function setVisitPhotoFiles(files){
+ const items=Array.from(files||[]);if(items.length>15)return alert('Select at most 15 photos per monitoring visit.');
+ if(items.some(f=>!['image/jpeg','image/png','image/webp'].includes(f.type)))return alert('Please use JPG, PNG or WebP photos.');
+ if(items.some(f=>f.size>18*1024*1024))return alert('One or more photographs exceed 18 MB. Please choose smaller files.');
+ const input=$('#visitPhotos');if(!input)return;
+ try{const dt=new DataTransfer();items.forEach(f=>dt.items.add(f));input.files=dt.files}
+ catch(err){return alert('Your browser could not attach dropped images. Please use the Choose Photos button.')}
+ checkPhotoSelection(input);
+}
+function checkPhotoSelection(el){const files=Array.from(el.files||[]);const note=$('#visitPhotosNote'),preview=$('#visitPhotosPreview');
+ if(files.length>15){alert('Choose at most 15 photographs per visit.');el.value='';return}
+ revokeVisitPreviews();if(preview){preview.innerHTML='';for(const file of files){const url=URL.createObjectURL(file);visitPhotoUrls.push(url);const img=document.createElement('img');img.src=url;img.alt=file.name;img.title=file.name;preview.append(img)}}
+ if(note)note.textContent=files.length?files.length+' photograph(s) ready · They will be uploaded when you save this monitoring visit.':'No photograph is required to submit this visit.';
+}
+function setupPhotoDrop(id,onFiles){const zone=document.getElementById(id);if(!zone)return;
+ for(const t of ['dragenter','dragover'])zone.addEventListener(t,ev=>{ev.preventDefault();zone.classList.add('dragging')});
+ for(const t of ['dragleave','drop'])zone.addEventListener(t,ev=>{ev.preventDefault();zone.classList.remove('dragging')});
+ zone.addEventListener('drop',ev=>{const files=Array.from(ev.dataTransfer?.files||[]);if(files.length)onFiles(files)});
+}
+function shrinkPhoto(file){return new Promise((resolve,reject)=>{
+ if(!['image/png','image/jpeg','image/webp'].includes(file.type))return reject(Error('Only JPG, PNG and WebP images are supported.'));
+ if(file.size>18*1024*1024)return reject(Error(file.name+' exceeds 18 MB.'));
+ const obj=URL.createObjectURL(file),im=new Image();im.onerror=()=>{URL.revokeObjectURL(obj);reject(Error('Could not read '+file.name))};
+ im.onload=()=>{URL.revokeObjectURL(obj);try{
+   const c=document.createElement('canvas');const scale=Math.min(1,1280/Math.max(im.width,im.height));c.width=Math.max(1,Math.round(im.width*scale));c.height=Math.max(1,Math.round(im.height*scale));const ctx=c.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(im,0,0,c.width,c.height);
+   let data=c.toDataURL('image/jpeg',.72);if(data.length>850000){const k=Math.min(1,900/Math.max(im.width,im.height));c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);ctx.fillStyle='white';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(im,0,0,c.width,c.height);data=c.toDataURL('image/jpeg',.60)}
+   resolve(data)
+  }catch(e){reject(e)}};im.src=obj;
+})}
+async function addSitePhotos(files,options){if(!land(options.ecc))throw Error('Landfill not found');
+ const picked=Array.from(files||[]);if(!picked.length)return 0;if(picked.length>15)throw Error('Upload at most 15 photographs at once');
+ const saved=[];
+ try{for(const file of picked){const data=await shrinkPhoto(file),id=newLocalId('img-');await putPhotoBytes(id,data);saved.push({id,ecc:options.ecc,visitId:options.visitId||'',date:options.date||'',caption:options.caption||'Site condition',name:file.name,iis:options.iis||'',createdAt:new Date().toISOString()})}
+  const prior=state.photos.slice();state.photos.push(...saved);
+  try{persist()}catch(err){state.photos=prior;throw err}
+  return saved.length;
+ }catch(err){for(const p of saved)await deletePhotoBytes(p.id).catch(()=>{});throw err}
+}
+let photoTarget='',photoUploading=false;
+function openPhotoManager(e){if(!land(e))return;photoTarget=e;
+ const visitOptions=visits(e).map(v=>`<option value="${esc(v.id)}">${show(dateOut(v.date))} · ${show(v.iis)} · ${show(monitoringTeam(v,'full'))}</option>`).join('');
+ const today=todayISO();
+ modal(`<div class="modalhead"><h2>Site Photographs · ${show(land(e).lgu)}</h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div>
+ <p class="photo-note">Upload actual site photographs in one step. Multiple images can be selected together and will be resized automatically. Photos are optional and remain in the local browser until exported in a full backup.</p>
+ <div class="field" style="max-width:280px;margin:16px 0 12px"><label for="photoDate">Date photos were taken (MM/DD/YYYY)</label><input class="search" type="text" inputmode="numeric" id="photoDate" maxlength="10" placeholder="MM/DD/YYYY" value="${esc(dateOut(today))}"><div class="tiny" style="margin-top:5px">Month / Day / Year · Defaults to today. Example: 06/04/2026.</div></div>
+ <input id="sitePhotoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+ <div id="photoDropzone" class="photo-dropzone" role="button" tabindex="0" onclick="$('#sitePhotoInput').click()" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault();$('#sitePhotoInput').click()}">
+ <div class="camera">📷</div><strong>Choose photos or drag them here</strong><span>JPG, PNG, WebP · Up to 15 photos per batch · Automatically saved after selection</span></div>
+ <div id="photoUploadStatus" class="photo-upload-status" role="status" aria-live="polite"></div>
+ <details class="photo-group-options"><summary>Optional: Add a common description or link photos to a monitoring visit</summary>
+ <div class="photo-fields"><div class="field full"><label for="photoCaption">Description (optional)</label><input type="text" id="photoCaption" maxlength="160" placeholder="e.g. Cell 1 liner installation"></div>
+ <div class="field full"><label for="photoVisit">Associated monitoring visit (optional)</label><select id="photoVisit"><option value="">Not linked to a specific visit</option>${visitOptions}</select></div></div>
+ </details>
+ <div class="photo-gallery-head" style="margin-top:24px"><h3 style="margin:0">Photos on File (${photosFor(e).length})</h3><button class="btn tinyoutline" onclick="closeModal()">Done</button></div>
+ <div class="photo-grid">${photosFor(e).map(p=>photoCard(p,true)).join('')||'<div class="photo-empty">No photographs recorded for this landfill.</div>'}</div>`);
+ hydratePhotoImages();
+ $('#sitePhotoInput').addEventListener('change',async ev=>{const files=Array.from(ev.target.files||[]);ev.target.value='';await handlePhotoBatch(files)});
+ $('#photoVisit').addEventListener('change',()=>{const visit=state.visits.find(v=>v.id===$('#photoVisit')?.value);if(visit)$('#photoDate').value=dateOut(visit.date)});
+ setupPhotoDrop('photoDropzone',files=>handlePhotoBatch(files));
+}
+async function handlePhotoBatch(files){
+ const picked=Array.from(files||[]);if(!picked.length||photoUploading)return;
+ const statusEl=$('#photoUploadStatus'),zone=$('#photoDropzone');if(!statusEl||!zone)return;
+ const e=photoTarget,visitId=$('#photoVisit')?.value||'',v=state.visits.find(x=>x.id===visitId),enteredDate=$('#photoDate')?.value||'',caption=$('#photoCaption')?.value.trim()||'Site condition';
+ let date;try{date=dateIn(enteredDate,'Date photographs were taken',true)}catch(err){statusEl.textContent=err.message;statusEl.classList.add('error');return}
+ if(picked.length>15){statusEl.textContent='Choose up to 15 photographs at a time. You can upload another batch afterwards.';statusEl.classList.add('error');return}
+ photoUploading=true;statusEl.classList.remove('error');statusEl.textContent=`Saving ${picked.length} photo(s)… Please keep this window open.`;zone.classList.add('uploading');
+ try{const count=await addSitePhotos(picked,{ecc:e,visitId,date,caption,iis:v?.iis||''});if(view==='profile'&&selected===e)profile();
+  if($('#photoUploadStatus')){$('#photoUploadStatus').textContent=`✓ ${count} photograph(s) saved. To add more, choose another batch.`;$('#photoUploadStatus').classList.remove('error')}
+  // Refresh gallery without clearing the upload fields or the saved-success message.
+  const gallery=$('#photoDropzone')?.parentElement?.querySelector('.photo-grid');
+  const heading=$('#photoDropzone')?.parentElement?.querySelector('.photo-gallery-head h3');
+  if(gallery){gallery.innerHTML=photosFor(e).map(p=>photoCard(p,true)).join('');hydratePhotoImages()}
+  if(heading)heading.textContent=`Photos on File (${photosFor(e).length})`;
+ }catch(err){if($('#photoUploadStatus')){$('#photoUploadStatus').textContent='Upload failed: '+err.message;$('#photoUploadStatus').classList.add('error')}}
+ finally{photoUploading=false;if($('#photoDropzone'))$('#photoDropzone').classList.remove('uploading')}
+}
+function removeSitePhoto(id){const photo=state.photos.find(p=>p.id===id);if(!photo)return;if(!confirm('Remove this actual site photograph from the gallery and backup database?'))return;
+ const prior=state.photos.slice();state.photos=state.photos.filter(p=>p.id!==id);try{persist()}catch(e){state.photos=prior;return alert('Deletion failed: '+e.message)}
+ deletePhotoBytes(id).catch(()=>alert('Image bytes could not be deleted; please try again later.'));if(view==='profile'&&selected===photo.ecc)profile();openPhotoManager(photo.ecc);
+}
+function editPhotoInfo(id){const p=state.photos.find(x=>x.id===id);if(!p)return;const caption=prompt('Edit photo description:',p.caption||'');if(caption===null)return;
+ const date=prompt('Date photograph was taken (MM/DD/YYYY):',dateOut(p.date));if(date===null)return;
+ let isoDate;try{isoDate=dateIn(date,'Date photograph was taken',true)}catch(err){return alert(err.message)}
+ const old={...p};p.caption=caption.trim().slice(0,160);p.date=isoDate;try{persist()}catch(err){Object.assign(p,old);return alert(err.message)}if(view==='profile'&&selected===p.ecc)profile();openPhotoManager(p.ecc)
+}
+async function openPhotoPreview(id){const p=state.photos.find(x=>x.id===id);if(!p)return;try{const bytes=await getPhotoBytes(id);if(!bytes)return alert('Image unavailable. Restore from a full backup.');
+ const overlay=document.createElement('div');overlay.className='modalbg';overlay.style.zIndex='50';overlay.style.display='grid';overlay.style.placeItems='center';overlay.onclick=ev=>{if(ev.target===overlay)overlay.remove()};
+ const card=document.createElement('div');card.style.cssText='background:white;border-radius:14px;padding:14px;max-width:min(96vw,1050px);max-height:95vh;overflow:auto';
+ const header=document.createElement('div');header.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:15px';
+ const label=document.createElement('strong');label.textContent=(p.caption||'Site condition')+' · '+(dateOut(p.date)||'Undated');header.append(label);
+ const close=document.createElement('button');close.className='btn';close.textContent='Close';close.onclick=()=>overlay.remove();header.append(close);card.append(header);
+ const img=document.createElement('img');img.src=bytes;img.alt=p.caption||'Site photo';img.style.cssText='max-width:100%;max-height:78vh;margin-top:12px;border-radius:8px;object-fit:contain;display:block';card.append(img);overlay.append(card);document.body.append(overlay);
+ }catch(err){alert('Photo could not be opened: '+err.message)}
+}
+
+
+persist();render();
+</script></body></html>
